@@ -1,20 +1,16 @@
 
 body{
-    background-color:red;    
-}
-
-
+    background-color: white; }
 
 .footer{ 
         position: fixed;     
         text-align: center ;    
         bottom: 10px; 
-        width: 100%;
-    }
-    
+        width: 100%; }
     
 .summary{
         text-align: center;
         font-size: 18px;
-        font-family: times;
-}
+        font-family: times; }
+        
+

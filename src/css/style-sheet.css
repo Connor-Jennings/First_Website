@@ -47,10 +47,8 @@ ul li:hover{
 p a.colorlink{
     color: blue;
     text-decoration: underline;}
-img{
-    float: left;
-    padding-left: 40px;
-    padding-top: 7%;
-}
+#aboutphoto img{
+     margin: 2.5% auto 0px auto;
+     padding-bottom: 4.8%; }
 
 

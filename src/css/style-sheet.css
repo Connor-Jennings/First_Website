@@ -1,7 +1,5 @@
 
 body{
-    border-style: solid;
-    border-color: white;
     background-color: black;
     cursor: crosshair; }
 p{
@@ -42,7 +40,7 @@ a:link{
     cursor: crosshair;}
 a:visited{
     color: white; } 
-ul li:hover{
+ul li:hover, a:hover{
     text-decoration: underline;} 
 p a.colorlink{
     color: blue;
@@ -50,5 +48,16 @@ p a.colorlink{
 #aboutphoto img{
      margin: 2.5% auto 0px auto;
      padding-bottom: 4.8%; }
+table{
+    margin: 10% auto 10% auto;
+    padding: 5% 5% 5% 5%;
+    border-style: solid;
+    border-color: white;}
+th{
+    color: white; }
+div.index{
+    margin: 10% auto 16.5% auto; }
+div.index img{
+    padding-left: 2.5%; }
 
 

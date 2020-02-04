@@ -3,11 +3,9 @@
 #map {
     height: 450px;  /* The height is 400 pixels */
     width: 63%;/* The width is the width of the web page */
-    float: left; 
-}
+    float: left; }
 a.tripmenu{
-    color:black;
-}
+    color:black; }
 #mapMenu{
     float: left;
     margin-right: 3%;
@@ -15,13 +13,11 @@ a.tripmenu{
     padding: 15px 25px 15px 25px; /*top right bottom left */
     background-color: white;
     border: solid;
-    border-color: grey;
-}
+    border-color: grey; }
 #info{
     float: left;
     margin-left: 2%;
     padding: 15px 65px 15px 65px;
     background-color: white;
     border: solid;
-    border-color: grey;
-}
+    border-color: grey; }

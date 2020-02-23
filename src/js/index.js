@@ -16,7 +16,7 @@ $(function(){
          .done(function(data){
             var newContent = '';
             for(var i=0; i<data.photoList.length; i++){
-               newContent += '<img src="'+ data.photoList[i].src +'" ';
+               newContent += '<img class="picture" src="'+ data.photoList[i].src +'" ';
                newContent += 'alt ="' + data.photoList[i].alt +'" ';
                newContent += 'width ="' + data.photoList[i].width +'" ';
                newContent += 'height ="' + data.photoList[i].height +'" />';

@@ -11,7 +11,7 @@ $('h2.gallery').on('click', function(){
         if(counter === 1){
          $.getJSON('data/photos.json').done(function(data){
            var newContent = '';
-           for(var i=0; i<data.events.length; i++){
+           for(var i=0; i<data.photoList.length; i++){
               newcontent += '<img src="'+ data.events[i].src +'" ';
               newcontent += 'alt ="' + data.events[i].alt +'" ';
               newContent += 'width ="' + data.events[i].width +'" ';

@@ -9,13 +9,13 @@ $('h2.gallery').on('click', function(){
         $('div.photos').children('p').hide();
         counter +=1;
         if(counter === 1){
-         $.getJSON('data/photos.json').done(function(){
+         $.getJSON('data/photos.json').done(function(data){
            var newContent = '';
-           for(var i=0; i<responseObject.events.lenght; i++){
-              newcontent += '<img src="'+ responseObject.events[i].src +'" ';
-              newcontent += 'alt ="' + responseObject.events[i].alt +'" ';
-              newContent += 'width ="' + responseObject.events[i].width +'" ';
-              newContent += 'height ="' + responseObject.events[i].height +'" />';
+           for(var i=0; i<data.events.lenght; i++){
+              newcontent += '<img src="'+ data.events[i].src +'" ';
+              newcontent += 'alt ="' + data.events[i].alt +'" ';
+              newContent += 'width ="' + data.events[i].width +'" ';
+              newContent += 'height ="' + data.events[i].height +'" />';
            }
            $('div#imgs').html(newContent);
          }).fail(function(){

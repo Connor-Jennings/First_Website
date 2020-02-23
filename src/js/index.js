@@ -27,7 +27,7 @@ $('h2.gallery').on('click', function(){
          }
        };
        xhr.open('GET', 'data/photos.json', true);
-       xhr.send(null);
+       xhr.send();
    }
    else{
         $('div.imgs').hide();

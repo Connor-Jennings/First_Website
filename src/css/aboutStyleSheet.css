@@ -1,0 +1,13 @@
+
+div.about{
+    padding-top: 5%;
+    text-align: center;
+    font-size: 110%;
+    font-family: times; }
+#aboutphoto img{
+     margin: 2.5% auto 0px auto;
+     padding-bottom: 4.8%; }
+p a.aboutLinks{
+    color: blue;}
+p a.aboutLinks:hover{
+     text-decoration: underline;}

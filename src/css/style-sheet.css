@@ -1,12 +1,16 @@
 
 body{
-    background-color: black;
+    background-color: gray;
     cursor: crosshair; }
 p{
-    color: white; }
+    color: white;
+    font-family: monospace;
+    font-size: 12pt;}
 .title{
     color: white;
-    text-align: center; }
+    text-align: center;
+    font-family: courier-new;
+    margin-bottom: 5%;}
 div.footer{
     color: white;
     position: fixed;
@@ -15,19 +19,25 @@ div.footer{
     text-align: center ;    
     bottom: 10px;
     font-size: 110%; }
-div.about{
-    padding-top: 5%;
-    text-align: center;
-    font-size: 110%;
-    font-family: times; }
+a{
+    font-family: monospace; }
 ul.menu{
-    background-color: black;
     color: white;
-    width: 98.75%;
+    width: 92%;
     padding: 10px;
     margin: 0px auto 0px auto;
     border-bottom: 1px solid white;
-    text-align: center; }
+    text-align: center;
+    padding-right: 100px;}
+p.logo{
+    display: inline;
+    color: #25DB49;
+    float: left;
+    margin-left: 20px;}
+p.HAM{
+    display: inline;
+    color: white;
+    float: right; }
 ul li{
     color: white;
     display: inline;
@@ -41,17 +51,36 @@ a:visited{
     color: white; } 
 ul li:hover, a:hover{
     text-decoration: underline;} 
-p a.colorlink{
-    color: blue;
-    text-decoration: underline;}
-#aboutphoto img{
-     margin: 2.5% auto 0px auto;
-     padding-bottom: 4.8%; }
-div.index{
-    margin: 10% auto 16.5% auto; }
-div.index img{
-    padding-left: 2.5%; }
-    
-
+div.photos{
+    margin: 5% auto 5% auto; }
+div.photos p{
+    color: black;
+    text-align: center;}
+h2.gallery{
+    margin-top: 5%;
+    text-align: center;
+    color: white; }
+p#lastKnownLocation{
+    display: inline;
+    float: right;
+    margin-right: 2.5%;
+    margin-bottom: 5%;}
+p#emergencyStatus{
+    float:left;
+    display: inline;
+    margin-left: 2.5%;
+    padding-left:5px;
+    padding-right:5px;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-color: red;}
+a.emergencyLink:hover{
+    color: red;}
+#siteMap{
+    margin-top: 5%;
+    margin-left: 2.5%;}
+div.status{
+   margin-bottom: 2.5%;
+   border:solid;}
 
 

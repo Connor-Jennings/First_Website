@@ -13,10 +13,10 @@ $('h2.gallery').on('click', function(){
          $.getJSON('data/photos.json')
          .done(function(data){
             for(var i=0; i<data.photoList.length; i++){
-               newContent += '<img src="'+ data.events[i].src +'" ';
-               newContent += 'alt ="' + data.events[i].alt +'" ';
-               newContent += 'width ="' + data.events[i].width +'" ';
-               newContent += 'height ="' + data.events[i].height +'" />';
+               newContent += '<img src="'+ data.photoList[i].src +'" ';
+               newContent += 'alt ="' + data.photoList[i].alt +'" ';
+               newContent += 'width ="' + data.photoList[i].width +'" ';
+               newContent += 'height ="' + data.photoList[i].height +'" />';
             }
             $('div#imgs').html(newContent);})
          .fail(function(){

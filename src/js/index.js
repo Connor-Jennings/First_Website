@@ -12,7 +12,7 @@ $('h2.gallery').on('click', function(){
         var xhr = new XMLHttpRequest();
         
         xhr.onload = function(){
-         if(xhr.status !== 200){
+         if(xhr.status === 200){
             responseObject = JSON.parse(xhr.responseText);
             
             var newContent = '<div class="imgs">';
@@ -27,7 +27,7 @@ $('h2.gallery').on('click', function(){
          }
        };
        xhr.open('GET', 'data/photos.json', true);
-       xhr.send();
+       xhr.send(null);
    }
    else{
         $('div.imgs').hide();

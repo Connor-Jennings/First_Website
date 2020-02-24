@@ -1,0 +1,8 @@
+
+//data page for test trip 
+
+{
+    "trip":[
+        {"lat":"32.9852", "long":"-117.1643", "timeStamp":"19:22", "text":"I am stil alive"}
+    ]
+}

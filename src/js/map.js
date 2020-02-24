@@ -23,7 +23,7 @@ $(function(){                                     //when DOM is ready
 		var src = 'data/' + tripselection + '.json';
     $.getJSON(src)
     .done(function(data){
-			var latLng = new google.maps.LatLng(parseFloat(data.tripselection[0].lat),parseFloat(data.tripselection[0].lng)); 
+			var latLng = new google.maps.LatLng(parseFloat(data.testTrip[0].lat),parseFloat(data.testTrip[0].lng)); 
       var map = new google.maps.Map(                  // The map, centered at Uluru
         document.getElementById('map'), {zoom: 13, center: latLng });
       

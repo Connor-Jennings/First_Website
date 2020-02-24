@@ -22,7 +22,7 @@ $(function(){                                     //when DOM is ready
         document.getElementById('map'), {zoom: 4, center: uluru}
       );
       
-      new google.maps.Marker({position: uluru, map: map}); // A marker, positioned at Uluru
+      //new google.maps.Marker({position: uluru, map: map}); // A marker, positioned at Uluru
     })
     .fail(function(){
       $('div.messageBoard').html('it failed to load');

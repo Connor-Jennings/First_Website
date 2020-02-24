@@ -12,7 +12,7 @@ $(function(){                                     //when DOM is ready
    });
   
   
-  function LoadMap(selection){                                //map initilization
+  function LoadMap(){                                //map initilization
     $.getJSON('data/testTrip.json')
     .done(function(data){
       var uluru = {lat: data.trip[0].lat, lng: data.trip[0].lng};  
@@ -20,14 +20,14 @@ $(function(){                                     //when DOM is ready
         document.getElementById('map'), {zoom: 4, center: uluru}
       );
       
-      var marker = new google.maps.Marker({position: uluru, map: map}); // A marker, positioned at Uluru
+      new google.maps.Marker({position: uluru, map: map}); // A marker, positioned at Uluru
     })
     .fail(function(){
       $('div.messageBoard').html('it failed to load');
     });
   }
   
-  LoadMap('trip');
+  LoadMap();
   
   
   

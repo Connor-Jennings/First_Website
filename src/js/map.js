@@ -20,7 +20,7 @@ $(function(){                                     //when DOM is ready
       var map = new google.maps.Map(                  // The map, centered at Uluru
         document.getElementById('map'), {zoom: 4, center: uluru });
       
-				var latLng = new google.maps.LatLng(parseInt(data.trip[0].lat),parseInt(data.trip[0].lng));
+				var latLng = new google.maps.LatLng(parseFloat(data.trip[0].lat),parseFlaot(data.trip[0].lng));
 				var marker = new google.maps.Marker({
 						position: latLng,
 						map: map

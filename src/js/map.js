@@ -14,7 +14,7 @@ $(function(){                                     //when DOM is ready
 	function LoadMenu(){
 		$.getJSON('data/testTrip.json')
 		.done(function(data){
-			var item = '<input type="radio" name="trip" value="trip" class="tripmenu">'+JSON.stringify(data.trip.text) + '</input><br>';
+			var item = '<input type="radio" name="trip" value="trip" class="tripmenu">'+'testTrip' + '</input><br>';
 			$('div#listOfTrips').html(item);
 		});
 	}
@@ -23,7 +23,7 @@ $(function(){                                     //when DOM is ready
 		var src = 'data/' + tripselection + '.json';
     $.getJSON(src)
     .done(function(data){
-			var latLng = new google.maps.LatLng(parseFloat(data.trip[0].lat),parseFloat(data.trip[0].lng)); 
+			var latLng = new google.maps.LatLng(parseFloat(data.tripselection[0].lat),parseFloat(data.tripselection[0].lng)); 
       var map = new google.maps.Map(                  // The map, centered at Uluru
         document.getElementById('map'), {zoom: 13, center: latLng });
       

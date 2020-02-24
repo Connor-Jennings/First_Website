@@ -42,8 +42,8 @@ $(function(){                                     //when DOM is ready
     });
   }
   
-	LoadMenu(testTrip);
-  LoadMap();
+	LoadMenu('testTrip');
+  LoadMap('testTrip');
   
   
   

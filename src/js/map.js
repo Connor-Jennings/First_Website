@@ -18,11 +18,10 @@ $(function(){                                     //when DOM is ready
 			var latitude = data.trip[0].lat;
 			var longitude = data.trip[0].lng;
       var uluru = {lat: latitude, lng: longitude};  
-      new google.maps.Map(                  // The map, centered at Uluru
-        document.getElementById('map'), {zoom: 4, center: uluru }
-      );
+      var map = new google.maps.Map(                  // The map, centered at Uluru
+        document.getElementById('map'), {zoom: 4, center: uluru });
       
-      //new google.maps.Marker({position: uluru, map: map}); // A marker, positioned at Uluru
+      new google.maps.Marker({position: uluru, map: map}); // A marker, positioned at Uluru
     })
     .fail(function(){
       $('div.messageBoard').html('it failed to load');

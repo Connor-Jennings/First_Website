@@ -14,8 +14,7 @@ $(function(){                                     //when DOM is ready
 	function LoadMenu(){
 		$.getJSON('data/testTrip.json')
 		.done(function(data){
-			var trip = data.trip;
-			var item = '<input type="radio" name="trip" value="trip" class="tripmenu">'+JSON.stringify(trip.text) + '</input><br>';
+			var item = '<input type="radio" name="trip" value="trip" class="tripmenu">'+JSON.stringify(data.trip.text) + '</input><br>';
 			$('div#listOfTrips').html(item);
 		});
 	}

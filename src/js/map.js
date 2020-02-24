@@ -23,14 +23,17 @@ $(function(){                                     //when DOM is ready
 		var src = 'data/' + tripselection + '.json';
     $.getJSON(src)
     .done(function(data){
-			var latLng = new google.maps.LatLng(parseFloat(data.testTrip[0].lat),parseFloat(data.testTrip[0].lng)); 
-      var map = new google.maps.Map(                  // The map, centered at Uluru
+			var latLng = new google.maps.LatLng(parseFloat(data.trip[0].lat),parseFloat(data.trip[0].lng)); 
+      var map = new google.maps.Map(                  																							//Create the map, centered at the first cords
         document.getElementById('map'), {zoom: 13, center: latLng });
-      
-			new google.maps.Marker({
+      for(var i=0; i<data.trip.length; i++){																												//Insert all of the pins on the map
+				latlng = new google.maps.LatLng(parseFloat(data.trip[i].lat),parseFloat(data.trip[i].lng)); 
+				new google.maps.Marker({
 					position: latLng,
 					map: map
-			});
+				});
+			}
+			
 			var latLn = new google.maps.LatLng(2.8,-187.3);
 			new google.maps.Marker({
 					position: latLn,

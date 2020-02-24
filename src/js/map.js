@@ -10,6 +10,15 @@ $(function(){                                     //when DOM is ready
          }
       }
    });
+	
+	function LoadMenu(){
+		$.getJSON('data/testTrip.json')
+		.done(function(data){
+			var trip = data.trip;
+			var item = '<input type="radio" name="trip" value="trip" > <a class="tripmenu">'+trip + '</a><br>';
+			$('div#listOfTrips').html(item);
+		})
+	}
   
   function LoadMap(){                                //map initilization
     $.getJSON('data/testTrip.json')

@@ -27,7 +27,7 @@ $(function(){                                     //when DOM is ready
       var map = new google.maps.Map(                  																							//Create the map, centered at the first cords
         document.getElementById('map'), {zoom: 13, center: latLng });
       for(var i=0; i<data.trip.length; i++){																												//Insert all of the pins on the map
-				latlng = new google.maps.LatLng(parseFloat(data.trip[i].lat),parseFloat(data.trip[i].lng)); 
+				latLng = new google.maps.LatLng(parseFloat(data.trip[i].lat),parseFloat(data.trip[i].lng)); 
 				new google.maps.Marker({
 					position: latLng,
 					map: map

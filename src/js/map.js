@@ -25,6 +25,11 @@ $(function(){                                     //when DOM is ready
 						position: latLng,
 						map: map
         });
+				var latLn = new google.maps.LatLng(2.8,-187.3);
+				var marker = new google.maps.Marker({
+						position: latLn,
+						map: map
+        });
     })
     .fail(function(){
       $('div.messageBoard').html('it failed to load');

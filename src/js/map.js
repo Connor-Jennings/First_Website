@@ -17,7 +17,7 @@ $(function(){                                     //when DOM is ready
 			var trip = data.trip;
 			var item = '<input type="radio" name="trip" value="trip" > <a class="tripmenu">'+trip + '</a><br>';
 			$('div#listOfTrips').html(item);
-		})
+		});
 	}
   
   function LoadMap(){                                //map initilization
@@ -42,6 +42,7 @@ $(function(){                                     //when DOM is ready
     });
   }
   
+	LoadMenu();
   LoadMap();
   
   

@@ -19,7 +19,7 @@ $(function(){                                     //when DOM is ready
       var uluru = {lat: latitude, lng: longitude};  
       var map = new google.maps.Map(                  // The map, centered at Uluru
         document.getElementById('map'), {zoom: 4, center: uluru });
-      new google.maps.Marker({position: uluru, map: map}); // A marker, positioned at Uluru
+      var marker = new google.maps.Marker({position: uluru, map: map}); // A marker, positioned at Uluru
     })
     .fail(function(){
       $('div.messageBoard').html('it failed to load');

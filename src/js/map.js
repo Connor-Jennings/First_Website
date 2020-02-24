@@ -42,7 +42,7 @@ $(function(){                                     //when DOM is ready
     });
   }
   
-	LoadMenu('testTrip');
+	LoadMenu();
   LoadMap('testTrip');
   
   

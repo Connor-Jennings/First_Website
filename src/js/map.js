@@ -15,10 +15,10 @@ $(function(){                                     //when DOM is ready
   function LoadMap(){                                //map initilization
     $.getJSON('data/testTrip.json')
     .done(function(data){
-			var latitude = data.trip[0].parseInt("lat");
-			var longitude = data.trip[0].parseInt("long");
-			//var latitude = data.trip[0].lat;
-			//var longitude = data.trip[0].lng;
+			var num1 = data.trip[0].lat;
+			var num2 = data.trip[0].lng;
+			var latitude = parseInt(num2);
+			var longitude = parseInt(num1);
       var uluru = {lat: latitude, lng: longitude};  
       var map = new google.maps.Map(                  // The map, centered at Uluru
         document.getElementById('map'), {zoom: 4, center: uluru });

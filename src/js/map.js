@@ -17,7 +17,7 @@ $(function(){                                     //when DOM is ready
     .done(function(data){
 			var latitude = data.trip[0].lat;
 			var longitude = data.trip[0].lng;
-      var uluru = {lat: latitude, lng: longitude};  
+      var uluru = {lat: -25.344, lng: 131.036};  
       var map = new google.maps.Map(                  // The map, centered at Uluru
         document.getElementById('map'), {zoom: 4, center: uluru });
       

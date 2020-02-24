@@ -18,12 +18,12 @@ $(function(){                                     //when DOM is ready
       var map = new google.maps.Map(                  // The map, centered at Uluru
         document.getElementById('map'), {zoom: 13, center: latLng });
       
-			var marker = new google.maps.Marker({
+			new google.maps.Marker({
 					position: latLng,
 					map: map
 			});
 			var latLn = new google.maps.LatLng(2.8,-187.3);
-			var marker = new google.maps.Marker({
+			new google.maps.Marker({
 					position: latLn,
 					map: map
 			});

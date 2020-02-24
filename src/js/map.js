@@ -13,7 +13,7 @@ $(function(){                                     //when DOM is ready
   
   
   function LoadMap(selection){                                //map initilization
-    $getJSON('data/testTrip.JSON')
+    $.getJSON('data/testTrip.JSON')
     .done(function(data){
       var uluru = {lat: data.selection[0].lat, lng: data.selection[0].lng};  
       var map = new google.maps.Map(                  // The map, centered at Uluru

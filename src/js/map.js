@@ -15,7 +15,7 @@ $(function(){                                     //when DOM is ready
 		$.getJSON('data/testTrip.json')
 		.done(function(data){
 			var trip = data.trip;
-			var item = '<input type="radio" name="trip" value="trip" > <a class="tripmenu">'+trip.message + '</a><br>';
+			var item = '<input type="radio" name="trip" value="trip" > <a class="tripmenu">'+trip.text + '</a><br>';
 			$('div#listOfTrips').html(item);
 		});
 	}

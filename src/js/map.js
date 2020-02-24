@@ -19,8 +19,9 @@ $(function(){                                     //when DOM is ready
 		});
 	}
   
-  function LoadMap(){                                //map initilization
-    $.getJSON('data/testTrip.json')
+  function LoadMap(tripselection){                                //map initilization
+		var src = 'data/' + tripselection + '.json';
+    $.getJSON(src)
     .done(function(data){
 			var latLng = new google.maps.LatLng(parseFloat(data.trip[0].lat),parseFloat(data.trip[0].lng)); 
       var map = new google.maps.Map(                  // The map, centered at Uluru
@@ -41,7 +42,7 @@ $(function(){                                     //when DOM is ready
     });
   }
   
-	LoadMenu();
+	LoadMenu(testTrip);
   LoadMap();
   
   

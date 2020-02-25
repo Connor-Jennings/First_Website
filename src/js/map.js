@@ -4,9 +4,11 @@
 function LoadMenu(){
   $.getJSON('data/tripList.json')
   .done(function(data){
-    var items;
+    var items = '';
     for(i = 0; i<data.tripList.length; i++){
-      items  += '<input type="radio" name="trip" value="trip" class="tripmenu">'+ data.tripList[i].title + '</input><br>';
+      items  += '<input type="radio" name="trip" value="trip" class="tripmenu">';
+      items += data.tripList[i].title;
+      items += '</input><br>';
     }
     $('div#listOfTrips').html(items);
   })

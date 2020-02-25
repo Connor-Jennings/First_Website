@@ -20,7 +20,7 @@ function LoadMenu(){
 function LoadMap(tripSelectionPath){                                //map initilization
   $.getJSON(tripSelectionPath)
   .done(function(data){
-    var latLng = new google.maps.LatLng(parseFloat(data.trip[0].lat),parseFloat(data.trip[0].lng)); 
+    var latLng = new google.maps.LatLng(parseFloat(data.trip[1].lat),parseFloat(data.trip[1].lng)); 
     var map = new google.maps.Map(                  																							//Create the map, centered at the first cords
       document.getElementById('map'), {zoom: 13, center: latLng });
     for(var i=1; i<data.trip.length; i++){																												//Insert all of the pins on the map

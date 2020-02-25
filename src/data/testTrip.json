@@ -5,7 +5,7 @@
     "trip":[
         {"title":"Trip1"},
         {"lat": "32.9854", "lng": "-117.1642", "timeStamp": "19:22", "text": "I am still alive"},
-		{"lat": "32.9855", "lng": "-117.1653", "timeStamp": "19:22", "text": "I am still alive"},
-		{"lat": "32.9866", "lng": "-117.1690", "timeStamp": "19:22", "text": "I am still alive"}
+		{"lat": "-32.9855", "lng": "117.1653", "timeStamp": "19:22", "text": "I am still alive"},
+		{"lat": "32.9866", "lng": "-189.1690", "timeStamp": "19:22", "text": "I am still alive"}
     ]
 }

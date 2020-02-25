@@ -23,7 +23,7 @@ function LoadMap(tripSelectionPath){                                //map initil
     var latLng = new google.maps.LatLng(parseFloat(data.trip[0].lat),parseFloat(data.trip[0].lng)); 
     var map = new google.maps.Map(                  																							//Create the map, centered at the first cords
       document.getElementById('map'), {zoom: 13, center: latLng });
-    for(var i=0; i<data.trip.length; i++){																												//Insert all of the pins on the map
+    for(var i=1; i<data.trip.length; i++){																												//Insert all of the pins on the map
       var LatLong = new google.maps.LatLng(parseFloat(data.trip[i].lat),parseFloat(data.trip[i].lng)); 
       new google.maps.Marker({
         position: LatLong,

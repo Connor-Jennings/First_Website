@@ -10,10 +10,10 @@ function LoadMenu(){
       items += data.tripList[i].title;
       items += '</input><br>';
     }
-    $('div#listOfTrips').html(items);
+    $('#listOfTrips').html(items);
   })
   .fail(function(){
-    $('div#listOfTrips').html('something went wrong');
+    $('#listOfTrips').html('something went wrong');
   });
 }
 

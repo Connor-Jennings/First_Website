@@ -6,7 +6,7 @@ function LoadMenu(){
   .done(function(data){
     var items = '<div class="heading"><h2>Trip Menu</h2></div>';
     for(i = 0; i<data.tripList.length; i++){
-      items  += '<input type="radio" name="trip" value="trip" class="tripmenu">';
+      items  += '<input type="radio" class="tripmenu" onclick="Loadmap('+data.tripList.path+')>';
       items += data.tripList[i].title;
       items += '</input><br>';
     }
@@ -17,8 +17,8 @@ function LoadMenu(){
   });
 }
 
-function LoadMap(tripSelectionPath){                                //map initilization
-  $.getJSON(tripSelectionPath)
+function LoadMap(fileSelectionPath){                                //map initialization
+  $.getJSON(fileSelectionPath)
   .done(function(data){
     var latLng = new google.maps.LatLng(parseFloat(data.trip[1].lat),parseFloat(data.trip[1].lng)); 
     var map = new google.maps.Map(                  																							//Create the map, centered at the first cords
@@ -51,7 +51,7 @@ $(function(){                                     //when DOM is ready
       }
    });
   
-	LoadMenu();                        //Initialize the menu
+	LoadMenu();                        //Initialize the Menu
   LoadMap('data/testTrip.json');    //tripList.path  object in the file "tripList.json" 
   
   

@@ -8,7 +8,7 @@ function LoadMenu(){
     for(i = 0; i<data.tripList.length; i++){
       items  += '<input type="radio" class="tripmenu"> '; //onclick="Loadmap('+data.tripList[i].path+')>;
       items += data.tripList[i].title;
-      items += '</input>';
+      items += '</input><br>';
     }
     $('#listOfTrips').html(items);
   })

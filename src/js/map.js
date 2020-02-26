@@ -6,7 +6,7 @@ function LoadMenu(){
   .done(function(data){
     var items = '<div class="heading"><h2>Trip Menu</h2></div>';
     for(i = 0; i<data.tripList.length; i++){
-      items  += '<input type="radio" value="idk" name="idk" class="tripmenu" onclick="Loadmap('+data.tripList.path+')>';
+      items  += '<input type="radio" class="tripmenu" onclick="Loadmap('+data.tripList.path+')>';
       items += data.tripList[i].title;
       items += '</input><br>';
     }

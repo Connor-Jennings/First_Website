@@ -6,7 +6,9 @@ function LoadMenu(){
   .done(function(data){
     var items = '<div class="heading"><h2>Trip Menu</h2></div>';
     for(i = 0; i<data.tripList.length; i++){
-      items  += '<input type="radio" id="p'+i +'" name=p'+i +'value="';
+      items += '<input type="radio"';
+      items += 'id="p'+i;
+      items +='" name=p'+i +'value="';
       items += data.tripList[i].path+'")>';
       items += '<label for="p'+i+'">'+ data.tripList[i].title + '</label>';
       items += '</input><br>';
@@ -55,8 +57,8 @@ $(function(){                                     //when DOM is ready
 	LoadMenu();                        //Initialize the Menu
   LoadMap('data/testTrip.json');    //tripList.path  object in the file "tripList.json" 
   
-  $('#listOfTrips label').on('click', function(){
-    $('h3.infoTitle').html($('#listOfTrips label').val());
+  $('#listOfTrips input').on('click', function(){
+    $('h3.infoTitle').html($('#listOfTrips input').val());
     });
   
   

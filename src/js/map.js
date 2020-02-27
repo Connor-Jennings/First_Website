@@ -8,7 +8,7 @@ function LoadMenu(){
     for(i = 0; i<data.tripList.length; i++){
       items += '<input type="radio"';
       items += 'id="p'+i;
-      items +='" name=p'+i +'value="';
+      items +='" name='+i +'value="';
       items += data.tripList[i].path+'")>';
       items += '<label for="p'+i+'">'+ data.tripList[i].title + '</label>';
       items += '</input><br>';

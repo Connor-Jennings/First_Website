@@ -5,7 +5,7 @@ function LoadMenu(){
   $.getJSON('data/tripList.json')
   .done(function(data){
     var items = '<div class="heading"><h2>Trip Menu</h2></div>';
-    for(i = 0; i<1; i++){//data.tripList.length; i++){
+    for(i = 0; i<data.tripList.length; i++){
       items += '<input type="radio"';
       items += 'id="p';
       items +=i;

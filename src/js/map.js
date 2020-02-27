@@ -6,9 +6,9 @@ function LoadMenu(){
   .done(function(data){
     var items = '<div class="heading"><h2>Trip Menu</h2></div>';
     for(i = 0; i<data.tripList.length; i++){
-      items  += '<input type="radio" name="tripselection" value="';
+      items  += '<input type="" name="tripselection" value="';
       items += data.tripList[i].path+'")>';
-      items += data.tripList[i].title;
+      items += '<label>'+ data.tripList[i].title + '</label>';
       items += '</input><br>';
     }
     $('#listOfTrips').html(items);

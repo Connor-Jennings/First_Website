@@ -9,9 +9,9 @@ function LoadMenu(){
       items += '<input type="radio"';
       items += 'id="p';
       items +=i;
-      items +='" name=';
+      items +='" name="';
       items +=i;
-      items+='value="';
+      items+='" value="';
       items += data.tripList[i].path;
       items +='")>';
       items += '<label for="p';

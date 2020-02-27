@@ -58,7 +58,7 @@ $(function(){                                     //when DOM is ready
   LoadMap('data/testTrip.json');    //tripList.path  object in the file "tripList.json" 
   
   $('form').on('click', function(){
-    $('h3.infoTitle').html($('#listOfTrips input:radio').val());
+    $('h3.infoTitle').html('click');
     });
   
   

@@ -6,7 +6,7 @@ function LoadMenu(){
   .done(function(data){
     var items = '<div class="heading"><h2>Trip Menu</h2></div>';
     for(i = 0; i<data.tripList.length; i++){
-      items  += '<input type="" name="tripselection" value="';
+      items  += '<input type="" name="tripSelection" class="tripSelection" value="';
       items += data.tripList[i].path+'")>';
       items += '<label>'+ data.tripList[i].title + '</label>';
       items += '</input><br>';
@@ -56,8 +56,11 @@ $(function(){                                     //when DOM is ready
   LoadMap('data/testTrip.json');    //tripList.path  object in the file "tripList.json" 
   
   
-  //removes items in the menu after hovering
-  var $listItems = $('li');
+  $('input,tripSelection').on('click', LoadMap(this.value));
+  
+  
+  
+  var $listItems = $('li');               //removes items in the menu after hovering
   $listItems.on('mouseout', function(){
      $(this).children('a').remove();
   });

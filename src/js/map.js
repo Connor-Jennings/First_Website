@@ -55,7 +55,7 @@ $(function(){                                     //when DOM is ready
 	LoadMenu();                        //Initialize the Menu
   LoadMap('data/testTrip.json');    //tripList.path  object in the file "tripList.json" 
   
-  $('input.name').on('click', function(){
+  $('input').on('click', function(){
     $('h3.infoTitle').html(this.name);
     });
   

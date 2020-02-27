@@ -5,17 +5,17 @@ function LoadMenu(){
   $.getJSON('data/tripList.json')
   .done(function(data){
     var items = '<div class="heading"><h2>Trip Menu</h2></div>';
-    for(i = 0; i<data.tripList.length; i++){
+    for(i = 0; i<1; i++){//data.tripList.length; i++){
       items += '<input type="radio"';
-      items += 'id="p';
-      items +=i;
-      items +='" name=';
-      items +=i;
+      items += 'id="p0';
+      //items +=i;
+      items +='" name=0';
+      //items +=i;
       items+='value="';
       items += data.tripList[i].path;
       items +='")>';
-      items += '<label for="p';
-      items+= i;
+      items += '<label for="p0';
+      //items+= i;
       items+='">';
       items+= data.tripList[i].title;
       items+= '</label>';

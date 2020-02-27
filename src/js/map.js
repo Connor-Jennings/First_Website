@@ -56,7 +56,7 @@ $(function(){                                     //when DOM is ready
   LoadMap('data/testTrip.json');    //tripList.path  object in the file "tripList.json" 
   
   $('#listOfTrips label').on('click', function(){
-    $('h3.infoTitle').html($('#listOfTrips label').prev().val());
+    $('h3.infoTitle').html($('#listOfTrips label').val());
     });
   
   

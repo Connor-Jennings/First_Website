@@ -7,8 +7,8 @@ function LoadMenu(){
     var items = '<div class="heading"><h2>Trip Menu</h2></div>';
     for(i = 0; i<data.tripList.length; i++){
       items += '<input type="radio"';
-      items += 'id="p'+i;
-      items +='" name='+i +'value="';
+      items += 'id="p'+string(i);
+      items +='" name='+string(i) +'value="';
       items += data.tripList[i].path+'")>';
       items += '<label for="p'+i+'">'+ data.tripList[i].title + '</label>';
       items += '</input><br>';

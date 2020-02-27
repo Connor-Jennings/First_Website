@@ -65,7 +65,7 @@ $(function(){                                     //when DOM is ready
 	LoadMenu();                        //Initialize the Menu
   LoadMap('data/testTrip.json');    //tripList.path  object in the file "tripList.json" 
   
-  $('form input:radio').on('click', function(){
+  $('form input:radio label').on('click', function(){
     $('h3.infoTitle').html('click');
     });
   

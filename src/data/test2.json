@@ -1,0 +1,8 @@
+{
+    "trip":[
+        {"title":"Trip1"},
+        {"lat": "32.9890", "lng": "-117.6573", "timeStamp": "19:22", "text": "I am still alive"},
+		{"lat": "32.9855", "lng": "234.4562", "timeStamp": "19:22", "text": "I am still alive"},
+		{"lat": "62.9866", "lng": "-200.0010", "timeStamp": "19:22", "text": "I am still alive"}
+    ]
+}

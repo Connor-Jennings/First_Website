@@ -7,10 +7,18 @@ function LoadMenu(){
     var items = '<div class="heading"><h2>Trip Menu</h2></div>';
     for(i = 0; i<data.tripList.length; i++){
       items += '<input type="radio"';
-      items += 'id="p'+i;
-      items +='" name='+i +'value="';
-      items += data.tripList[i].path+'")>';
-      items += '<label for="p'+i+'">'+ data.tripList[i].title + '</label>';
+      items += 'id="p';
+      items +=i;
+      items +='" name=';
+      items +=i;
+      items+='value="';
+      items += data.tripList[i].path;
+      items +='")>';
+      items += '<label for="p';
+      items+= i;
+      items+='">';
+      items+= data.tripList[i].title;
+      items+= '</label>';
       items += '</input><br>';
     }
     $('#listOfTrips').html(items);

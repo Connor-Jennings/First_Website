@@ -7,20 +7,15 @@ function LoadMenu(){
     var items = '<div class="heading"><h2>Trip Menu</h2></div>';
     for(i = 0; i<data.tripList.length; i++){
       items += '<input type="radio"';
-      items += 'id="p';
-      items +=i;
-      items +='" name="';
-      items +=i;
-      items+='" value="';
+      items += 'class="tripList"';
+      items +=' name="tripList"';
+      items +=' value="';
       items += data.tripList[i].path;
       items +='")>';
-      items += '<label for="p';
-      items+= i;
-      items+='">';
-      items+= data.tripList[i].title;
-      items+= '</label>';
+      items += data.tripList[i].title;
       items += '</input><br>';
     }
+    items += '<input type="button" value="Refresh map">';
     $('#listOfTrips').html(items);
   })
   .fail(function(){
@@ -53,10 +48,10 @@ function LoadMap(fileSelectionPath){                                //map initia
 }
 
 
-$(function(){                                     //when DOM is ready
+$(function(){                                             //when DOM is ready
   $.ajax({
       beforeSend: function(xhr){
-        if(xhr.ovverideMimeType){                    //If supported
+        if(xhr.ovverideMimeType){                      //If supported
             xhr.ovverideMimeType("application/json"); // Set MIME to prevent errors
          }
       }
@@ -65,8 +60,9 @@ $(function(){                                     //when DOM is ready
 	LoadMenu();                        //Initialize the Menu
   LoadMap('data/testTrip.json');    //tripList.path  object in the file "tripList.json" 
   
-  $('form input:radio label').on('click', function(){
-    $('h3.infoTitle').html('click');
+  $('input[type="button"]').on('click', function(){
+    var src = $("input.tripList:checked").val();
+    LoadMap(src);
     });
   
   

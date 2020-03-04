@@ -15,7 +15,7 @@ function LoadMenu(){
       items += data.tripList[i].title;
       items += '</input><br>';
     }
-    items += '<input type="button" value="Refresh map">';
+    items += '<input type="button" id="clicked" value="Refresh map">';
     $('#listOfTrips').html(items);
   })
   .fail(function(){
@@ -60,7 +60,7 @@ $(function(){                                             //when DOM is ready
 	LoadMenu();                        //Initialize the Menu
   LoadMap('data/testTrip.json');    //tripList.path  object in the file "tripList.json" 
   
-  $('input[type="button"]').on('click', function(){
+  $('#clicked').on('click', function(){
     var src = $("input.tripList:checked").val();
     LoadMap(src);
     });

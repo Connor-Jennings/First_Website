@@ -1,7 +1,7 @@
 
 //This page contains the JavaScript for the map page 
 
-function LoadMenu(){
+function LoadMenu(){ 
   $.getJSON('data/tripList.json')
   .done(function(data){
     var items = '<div class="heading"><h2>Trip Menu</h2></div>';
@@ -51,19 +51,16 @@ function LoadMap(fileSelectionPath){                                //map initia
 $(function(){                                             //when DOM is ready
   $.ajax({
       beforeSend: function(xhr){
-        if(xhr.ovverideMimeType){                      //If supported
-            xhr.ovverideMimeType("application/json"); // Set MIME to prevent errors
+        if(xhr.overideMimeType){                      //If supported
+            xhr.overideMimeType("application/json"); // Set MIME to prevent errors
          }
       }
    });
   
 	LoadMenu();                        //Initialize the Menu
-  LoadMap('data/testTrip.json');    //tripList.path  object in the file "tripList.json" 
+  //LoadMap('data/testTrip.json');    //tripList.path  object in the file "tripList.json" 
   
-  $('#clicked').on('click', function(){
-    var src = $("input.tripList:checked").val();
-    LoadMap(src);
-    });
+  $('#clicked').on('click', LoadMap($("input.tripList:checked").val()));
   
   
   

@@ -58,7 +58,7 @@ $(function(){                                             //when DOM is ready
    });
   
 	LoadMenu();                        //Initialize the Menu
-  //LoadMap('data/testTrip.json');    //tripList.path  object in the file "tripList.json" 
+  LoadMap('data/testTrip.json');    //tripList.path  object in the file "tripList.json" 
   
   $('#clicked').on('click', LoadMap($("input.tripList:checked").val()));
   

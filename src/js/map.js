@@ -51,8 +51,8 @@ function LoadMap(fileSelectionPath){                                //map initia
 $(function(){                                             //when DOM is ready
   $.ajax({
       beforeSend: function(xhr){
-        if(xhr.overideMimeType){                      //If supported
-            xhr.overideMimeType("application/json"); // Set MIME to prevent errors
+        if(xhr.overrideMimeType){                      //If supported
+            xhr.overrideMimeType("application/json"); // Set MIME to prevent errors
          }
       }
    });

@@ -2,18 +2,8 @@
 //This page contains the JavaScript for the Home page 
 
 
-$(function(){                                         //When the DOM is ready
-   var counter = 0;                 //for toggling between photos and obama
-   var loadFailed = false;          //for loading photos
-   $.ajax({
-      beforeSend: function(xhr){
-         if(xhr.ovverideMimeType){                    //If supported
-            xhr.ovverideMimeType("application/json"); // Set MIME to prevent errors
-         }
-      }
-   });
 
-   function LoadImages(){
+function LoadImages(){
       $.getJSON('data/photos.json')                   //Try to collect JSON data
          .done(function(data){                        //Build image elements
             var newContent = '';
@@ -30,6 +20,21 @@ $(function(){                                         //When the DOM is ready
             loadFailed = true;                          //asserts load will try again if user tries again
             });
    }
+
+
+
+
+
+$(function(){                                         //When the DOM is ready
+   var counter = 0;                 //for toggling between photos and obama
+   var loadFailed = false;          //for loading photos
+   $.ajax({
+      beforeSend: function(xhr){
+         if(xhr.ovverideMimeType){                    //If supported
+            xhr.ovverideMimeType("application/json"); // Set MIME to prevent errors
+         }
+      }
+   });
 
    $('h2.gallery').on('click', function(){         //event listener for photos
       if((counter%2) == 0){

@@ -1,7 +1,7 @@
 
 #map {
     height: 450px;  /* The height is 400 pixels */
-    width: 63%;/* The width is the width of the web page */
+    width: 61%;/* The width is the width of the web page */
     float: left;}
 a.tripmenu{
     color:black; }
@@ -16,7 +16,13 @@ a.tripmenu{
 #info{
     float: left;
     margin-left: 2%;
-    padding: 15px 65px 15px 65px;
+    padding: 15px 15px 15px 15px;
     background-color: white;
     border: solid;
     border-color: black; }
+p.infotxt{
+    color:black;
+}
+p#texting{
+    text-align: center;
+}

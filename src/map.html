@@ -18,21 +18,19 @@
         </ul>
         <!-- End Menu -->
         
-        <!-- when ready go here for a google guide on maps 
-        <br><br><br>
-        <a href="https://developers.google.com/maps/documentation/javascript/adding-a-google-map"> ggl mps guide 0</a>
-        <br><br>
-        <a href="https://developers.google.com/maps/documentation/javascript/mysql-to-maps" > ggl mps guide</a>
-        <br><br><br>
-        -->
-        <p>Click a trip in the trip menu to display the locations i have recorded. <br>
-        On the map you can click a pin and the information about that pin will be dispalyed.<br>
-        To find the raw list of coordinates and messages click that link.</p>
-       <div>
+        <p id="texting">
+        Click a trip in the trip menu to display the locations i have recorded. <br>
+        On the map you can click a pin and the information about that pin will be displayed.<br><br>
+       </p>
+      
         <!-- control for map -->
         <div id="mapMenu">
             <form id="listOfTrips">
-				
+                
+                <div id="listOfTripsd">
+                	
+                </div>
+                <input type="button" id="updateMap" value="Refresh_Map">
             </form>
         </div>
         <!-- end map control -->
@@ -43,14 +41,17 @@
         
         <!-- info for whats displayed on map selection -->
         <div id="info">
-            <h3 class="infoTitle"> Current trip </h3>
+            <h3 class="infoTitle"></h3>
+            <p class="infotxt" id="timestamp"></p>
+            <p class="infotxt" id="lat"></p>
+            <p class="infotxt" id="lng"></p>
+            <p class="infotxt" id="msg"></p>
         </div>
-        </div>
-       <div class="messageBoard"></div>
+       
+      
 
         <script src="js/jquery-3.4.1.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADhm_lBPTkilxVcckx8e95lcsgZqQth-8"></script>
         <script type="text/javascript" src="js/map.js"></script> 
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADhm_lBPTkilxVcckx8e95lcsgZqQth-8"
-        async defer></script>
     </body>
 </html>

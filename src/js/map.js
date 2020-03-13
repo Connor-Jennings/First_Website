@@ -1,7 +1,7 @@
 
 //This page contains the JavaScript for the map page 
 
-function LoadMenu(){ 
+function LoadMenu(){                                          //loads in list of trip choices
   $.getJSON('data/tripList.json')
   .done(function(data){
     var items = '<div class="heading"><h2>Trip Menu</h2></div>';
@@ -11,41 +11,58 @@ function LoadMenu(){
       items +=' name="tripList"';
       items +=' value="';
       items += data.tripList[i].path;
-      items +='")>';
+      items +='">';
       items += data.tripList[i].title;
-      items += '</input><br>';
+      items += '<br>';
     }
-    items += '<input type="button" id="clicked" value="Refresh map">';
-    $('#listOfTrips').html(items);
+    $('#listOfTripsd').html(items);
   })
   .fail(function(){
     $('#listOfTrips').html('something went wrong');
   });
 }
 
+function LoadPinInfo(index, data){                              //Updating Info column when pin is selected
+  if(data === 0){
+     $('h3.infoTitle').text("click a pin, any pin");
+    $('#timestamp').text("");
+    $('#lat').text("");
+    $('#lng').text("");
+    $('#msg').text("");
+  }else{
+    $('h3.infoTitle').text("Location # "+index);
+    $('#timestamp').text("Timestamp: "+data.trip[index].timeStamp);
+    $('#lat').text("Latitude :  "+data.trip[index].lat);
+    $('#lng').text("Longitude: "+data.trip[index].lng);
+    $('#msg').text("Message    : "+data.trip[index].text);
+  }
+}
+
 function LoadMap(fileSelectionPath){                                //map initialization
+  LoadPinInfo(0,0);                                                   //reset pin info column
   $.getJSON(fileSelectionPath)
   .done(function(data){
     var latLng = new google.maps.LatLng(parseFloat(data.trip[1].lat),parseFloat(data.trip[1].lng)); 
     var map = new google.maps.Map(                  																							//Create the map, centered at the first cords
-      document.getElementById('map'), {zoom: 13, center: latLng });
+              document.getElementById('map'), {zoom: 13, center: latLng });
     for(var i=1; i<data.trip.length; i++){																												//Insert all of the pins on the map
       var LatLong = new google.maps.LatLng(parseFloat(data.trip[i].lat),parseFloat(data.trip[i].lng)); 
-      new google.maps.Marker({
+      var marker = new google.maps.Marker({
         position: LatLong,
-        map: map
+        map: map,
+        zIndex: i
+      });
+      google.maps.event.addListener(marker,'click',function(){                //event listener for clicking on pins
+        var index = this.getZIndex();
+        LoadPinInfo(index, data);
       });
     }
-    var latLn = new google.maps.LatLng(2.8,-187.3);
-    new google.maps.Marker({
-        position: latLn,
-        map: map
-    });
-  })
-  .fail(function(){
-    $('div.messageBoard').html('it failed to load');
+  }).fail(function(){
+    $('div.messageBoard').html('failed to load');
   });
 }
+
+
 
 
 $(function(){                                             //when DOM is ready
@@ -58,14 +75,17 @@ $(function(){                                             //when DOM is ready
    });
   
 	LoadMenu();                        //Initialize the Menu
-  LoadMap('data/testTrip.json');    //tripList.path  object in the file "tripList.json" 
-  
-  $('#clicked').on('click', LoadMap($("input.tripList:checked").val()));
+  LoadMap('data/testTrip.json');    // Initialize the Mao 
   
   
+  $('input[value="Refresh_Map"]').on('click', function(){      //event listener for updating the map 
+    var $valued = $('input:checked').val();
+    LoadMap($valued);
+  });
   
-  var $listItems = $('li');               //removes items in the menu after hovering
-  $listItems.on('mouseout', function(){
+  
+ 
+  $('li').on('mouseout', function(){           //removes items in the menu after hovering
      $(this).children('a').remove();
   });
 });

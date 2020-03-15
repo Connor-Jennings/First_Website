@@ -1,28 +1,43 @@
 
+/*Style sheet for the map page */
+
+
 #map {
-    height: 450px;  /* The height is 400 pixels */
-    width: 61%;/* The width is the width of the web page */
-    float: left;}
+  height: 700px;  /* The height is 400 pixels */
+  width: 61%;/* The width is the width of the web page */
+  float: left;
+}
 a.tripmenu{
-    color:black; }
+  color:black;
+}
 #mapMenu{
-    float: left;
-    margin-right: 3%;
-    margin-left: 1.25%;
-    padding: 15px 25px 15px 25px; /*top right bottom left */
-    background-color: white;
-    border: solid;
-    border-color: black; }
+  float: left;
+  margin-right: 3%;
+  margin-left: 1.25%;
+  padding: 15px 25px 15px 25px; /*top right bottom left */
+  background-color: white;
+  border: solid;
+  border-color: black;
+}
 #info{
-    float: left;
-    margin-left: 2%;
-    padding: 15px 15px 15px 15px;
-    background-color: white;
-    border: solid;
-    border-color: black; }
+  float: left;
+  margin-left: 2%;
+  padding: 15px 15px 15px 15px;
+  background-color: white;
+  border: solid;
+  border-color: black;
+}
 p.infotxt{
-    color:black;
+  color:black;
 }
 p#texting{
-    text-align: center;
+  text-align: center;
+}
+#MainBlock{
+  display: block;
+}
+#MessageBlock{
+  float:inline-start;
+  display: block;
+  position: relative;
 }

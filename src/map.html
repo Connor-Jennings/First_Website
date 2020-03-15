@@ -16,38 +16,37 @@
             <li><a href="about.html">About</a></li>
             <p class="HAM">KN6COG</p>
         </ul>
-        <!-- End Menu -->
         
         <p id="texting">
         <br>Click a trip in the trip menu to display the locations i have recorded. <br>
         On the map you can click a pin and the information associated with that pin will be displayed.<br><br>
-       </p>
-      
-        <!-- control for map -->
-        <div id="mapMenu">
-            <form id="listOfTrips">
-                
-                <div id="listOfTripsd">
-                	
-                </div>
-                <input type="button" id="updateMap" value="Refresh_Map">
-            </form>
-        </div>
-        <!-- end map control -->
-        
-        <!-- This element contains the google map -->
-        <div id="map"></div>
-        <!------------------------------------------>
-        
-        <!-- info for whats displayed on map selection -->
-        <div id="info">
-            <h3 class="infoTitle"></h3>
-            <p class="infotxt" id="timestamp"></p>
-            <p class="infotxt" id="lat"></p>
-            <p class="infotxt" id="lng"></p>
-            <p class="infotxt" id="msg"></p>
-        </div>
+        </p>
        
+        <div id="MainBlock">
+            <!-- control for map -->
+            <div id="mapMenu">
+                <form id="listOfTrips">
+                    <div id="listOfTripsd"></div>
+                    <input type="button" id="updateMap" value="Refresh_Map">
+                </form>
+            </div>
+            
+            <!-- This element contains the google map -->
+            <div id="map"></div>
+        
+            <!-- info for whats displayed on map selection -->
+            <div id="info">
+                <h3 class="infoTitle"></h3>
+                <p class="infotxt" id="timestamp"></p>
+                <p class="infotxt" id="lat"></p>
+                <p class="infotxt" id="lng"></p>
+            </div>
+        </div>
+        
+         <div id="MessageBlock">
+            <p class="infotxt" id="msg">Message:</p>
+        </div>
+        <p>sdaf</p>
       
 
         <script src="js/jquery-3.4.1.js"></script>

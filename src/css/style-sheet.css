@@ -11,14 +11,6 @@ p{
     text-align: center;
     font-family: courier-new;
     margin-bottom: 5%;}
-div.footer{
-    color: white;
-    position: fixed;
-    width: 100%;
-    margin: 10px auto 10px auto;
-    text-align: center ;    
-    bottom: 10px;
-    font-size: 110%; }
 a{
     font-family: monospace; }
 ul.menu{

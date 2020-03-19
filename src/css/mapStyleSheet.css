@@ -5,11 +5,9 @@
 #map {
   height: 700px;  /* The height is 400 pixels */
   width: 67%;/* The width is the width of the web page */
-  float: left;
-}
+  float: left;}
 a.tripmenu{
-  color:black;
-}
+  color:black;}
 #mapMenu{
   float: left;
   margin-right: 30px;
@@ -17,8 +15,7 @@ a.tripmenu{
   padding: 10px 20px 10px 20px; /*top right bottom left */
   background-color: white;
   border: solid;
-  border-color: black;
-}
+  border-color: black;}
 #info{
   float: left;
   margin-left: 20px;
@@ -26,15 +23,11 @@ a.tripmenu{
   background-color: white;
   border: solid;
   border-color: black;
-  width: 250px;
-}
+  width: 250px;}
 p.infotxt{
-  color:black;
-}
+  color:black;}
 #texting{
-  text-align: center;
-}
+  text-align: center;}
 #MainBlock{
-  width: 100%;
-}
+  width: 100%;}
 

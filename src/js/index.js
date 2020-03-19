@@ -17,13 +17,18 @@ $(function(){                                         //When the DOM is ready
       $.getJSON('data/photos.json')                   //Try to collect JSON data
          .done(function(data){                        //Build image elements
             var newContent = '';
-            for(var i=0; i<data.photoList.length; i++){              
+            for(var i=0; i<data.photoList.length; i++){
+               newContent += '<li data-thumb="'+ data.photoList[i].src + '">';
+               newContent += '<img src="' + data.photoList[i].src +'" />';
+               newContent += '</li>';
+               /*
                newContent += '<img class="picture" src="'+ data.photoList[i].src +'" ';
                newContent += 'alt ="' + data.photoList[i].alt +'" ';
                newContent += 'width ="' + data.photoList[i].width +'" ';
                newContent += 'height ="' + data.photoList[i].height +'" />';
+            */
             }
-            $('div#imgs').html(newContent);
+            $('ul#lightSlider').append(newContent);
             loadFailed = false;})                       //Insert images
          .fail(function(){
             alert("Loading images failed");
@@ -48,5 +53,23 @@ $(function(){                                         //When the DOM is ready
            counter+=1;
       }
    });
-
+   
+   $(document).ready(function() {
+			$("#content-slider").lightSlider({
+                loop:true,
+                keyPress:true
+            });
+            $('#image-gallery').lightSlider({
+                gallery:true,
+                item:1,
+                thumbItem:9,
+                slideMargin: 0,
+                speed:500,
+                auto:true,
+                loop:true,
+                onSliderLoad: function() {
+                    $('#image-gallery').removeClass('cS-hidden');
+                }  
+            });
+		});
 });

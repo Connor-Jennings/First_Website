@@ -16,9 +16,11 @@ function LoadMenu(){                                          //loads in list of
       items += '<br>';
     }
     $('#listOfTripsd').html(items);
+    $('#info').show();
   })
   .fail(function(){
-    $('#listOfTrips').html('something went wrong');
+    $('#listOfTrips').html('something went wrong... try refreshing');
+    $('#info').hide();
   });
 }
 
@@ -58,7 +60,7 @@ function LoadMap(fileSelectionPath){                                //map initia
       });
     }
   }).fail(function(){
-    $('div.messageBoard').html('failed to load');
+    alert("The map failed to load");
   });
 }
 

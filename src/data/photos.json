@@ -1,9 +1,21 @@
 
 {
     "photoList":[
-        {"src": "images/IMG_2176.JPG", "alt": "GrandCanyon", "width": "500", "height": "300"},
-        {"src": "images/IMG_0180.JPEG", "alt": "HighSierras", "width": "400", "height": "300" },
-        {"src": "images/IMG_5736.JPEG", "alt": "HighSierras", "width": "400", "height": "300"}
+        {"src": "images/mapPics/IMG_2176.JPEG", "alt": "GrandCanyon", "width": "500", "height": "300"},
+        {"src": "images/mapPics/IMG_0180.JPEG", "alt": "HighSierras", "width": "400", "height": "300" },
+        {"src": "images/mapPics/IMG_5736.JPEG", "alt": "HighSierras", "width": "400", "height": "300"},
+        {"src": "images/mapPics/IMG_8636.jpg", "alt": "JMT", "width": "400", "height": "400"},
+        {"src": "images/mapPics/IMG_5196.jpg", "alt": "JMT", "width": "400", "height": "400"},
+        {"src": "images/mapPics/IMG_39801.jpg", "alt": "JMT", "width": "400", "height": "400"},
+        {"src": "images/mapPics/IMG_6766.jpg", "alt": "JMT", "width": "400", "height": "400"},
+        {"src": "images/mapPics/IMG_2312.JPEG", "alt": "JMT", "width": "400", "height": "400"},
+        {"src": "images/mapPics/IMG_5994.JPEG", "alt": "JMT", "width": "400", "height": "400"},
+        {"src": "images/mapPics/IMG_18291.jpg", "alt": "JMT", "width": "400", "height": "400"},
+        {"src": "images/mapPics/IMG_48801.jpg", "alt": "JMT", "width": "400", "height": "400"},
+        {"src": "images/mapPics/IMG_1745.jpg", "alt": "JMT", "width": "400", "height": "400"},
+        {"src": "images/mapPics/IMG_17251.jpg", "alt": "JMT", "width": "400", "height": "400"},
+        {"src": "images/mapPics/IMG_1202.jpg", "alt": "JMT", "width": "400", "height": "400"},
+        {"src": "images/mapPics/IMG_0665.JPEG", "alt": "JMT", "width": "400", "height": "400"}
     ]
 }
 

@@ -4,7 +4,7 @@
         <title> Home Page </title>
         <link href="css/style-sheet.css" type="text/css" rel="stylesheet" />
         <link href="css/indexStyleSheet.css" type="text/css" rel="stylesheet" />
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <link href="css/lightslider.css" type="text/css" rel="stylesheet" />
     </head>
     
     <body class="index">
@@ -23,12 +23,12 @@
         
         <div class="status">
             <p id="emergencyStatus"> <a class="emergencyLink">Emergency Status :</a> Probably Not In Danger </p>
-            <p id="lastKnownLocation"><a>Last Known Location</a> : 35.3606° N, 138.7274° E</p>
+            <p id="lastKnownLocation"><a>Last Known Location</a> : 35.3606 N, 138.7274 E</p>
             <br><br><br>
         </div>
         
        
-        <p id="siteMap"> Click "Photos" to load in some photos<br> It's not already loaded bc it would slow down the page and the server sucks.</p>
+        <p id="siteMap"> Click "Photos" to load in some photos<br> It's not already loaded because it would slow down the page and the server sucks.</p>
      
      
         <h2 class="gallery">Photos</h2>
@@ -73,18 +73,19 @@
             +++############+++++#++++++##########<br>
             ++##############++++#++++++##########<br>
             ++##############++++++++++###########<br></p>
-        <div id="imgs">
-            <ul id="lightSlider">
-                
-            </ul>
-        </div>
+            <div class="demo" id="imgs">
+                <ul class="list-unstyled row" id="anchor-tag">
+                </ul>
+            </div>
         </div>
         
-
         
         <!-- Footer -->
         <div class="footer"><a>Go outside </a></div>
+        
+        <!--javaScript-->
         <script src="js/jquery-3.4.1.js"></script>
+        <script src="js/lightslider.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
     </body>
 </html>

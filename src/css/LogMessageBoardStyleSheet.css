@@ -1,22 +1,23 @@
 
 
 #ControlPanel{
-    margin-top: 10%;
-    text-align: center; }
-#Messages{
-    float:left;
-    margin-left: 15%; }
-#Log{
-    float:left;
-    margin-left: 15%; }
-table{
-    margin: 10% auto 10% auto;
-    padding: 5% 5% 5% 5%;
-    border-style: solid;
-    border-color: white; }
-th{
-    border-color: white;
-    border-style: solid;
-    border-width: 1px;
+    margin-top: 5%;
+    margin-bottom: 50px;
+    text-align: center;}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    float:left;}
+#Wood{
+    text-align: center;
+    margin-left: 5%;
+    margin-bottom: 5%;}
+th, td {
     color: white;
-    font-family: courier;}
+    font-family: monospace;
+    font-size: 20px;
+    text-align: left;
+    padding: 10px 15px 10px 15px;
+    vertical-align: top;}
+th.msg{
+    max-width: 25%;}

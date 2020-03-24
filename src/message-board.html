@@ -18,22 +18,35 @@
         </ul>
         <!-- End Menu -->
         
-        <div id="ControlPanel"> <p> A control for the page selections </p></div>
+        <div id="ControlPanel"> <input type="button" id="updateLog" value="Refresh_Log"></div>
+          
         
-        
-        <table id="Messages">
-            <tr>
-                <th>
-                    <p> A message board will go here </p>
-                </th>
-            </tr>
-        </table>
-        <table id="Log">
-            <tr>
-                <th>
-                    <p> And the log will go here </p>
-                </th>
-            </tr>
-        </table>
+        <div id="Wood">
+            <table id="Table">
+                <tr>
+                    <th>Timestamp</th>
+                    <th>Latitude</th> 
+                    <th>Longitude</th>
+                    <th class="msg">Message</th>
+                </tr>
+                <tr>
+                    <td>Jill</td>
+                    <td>Smith</td>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <td>Eve</td>
+                    <td>Jackson</td>
+                    <td>94</td>
+                </tr>
+                <tr>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>80</td>
+                </tr>
+            </table>
+        </div>
+    <script src="js/jquery-3.4.1.js"></script>
+    <script src='js/LogMessageBoard.js'></script>
     </body>
 </html>

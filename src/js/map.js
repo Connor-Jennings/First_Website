@@ -5,7 +5,7 @@ function LoadMenu(){                                          //loads in list of
   $.getJSON('data/tripList.json')
   .done(function(data){
     var items = '<div class="heading"><h2>Trip Menu</h2></div>';
-    for(i = 0; i<data.tripList.length; i++){
+    for(var i = 0; i<data.tripList.length; i++){
       items += '<input type="radio"';
       items += 'class="tripList"';
       items +=' name="tripList"';
@@ -26,7 +26,7 @@ function LoadMenu(){                                          //loads in list of
 
 function LoadPinInfo(index, data){                              //Updating Info column when pin is selected
   if(data === 0){
-     $('h3.infoTitle').text("click a pin, any pin");
+    $('h3.infoTitle').text("click a pin, any pin");
     $('#timestamp').text("");
     $('#lat').text("");
     $('#lng').text("");
@@ -34,8 +34,23 @@ function LoadPinInfo(index, data){                              //Updating Info 
   }else{
     $('h3.infoTitle').text("Location # "+index);
     $('#timestamp').text("Timestamp: "+data.trip[index].timeStamp);
-    $('#lat').text("Latitude :  "+data.trip[index].lat);
-    $('#lng').text("Longitude: "+data.trip[index].lng);
+    
+    if(data.trip[index].lat > 0){
+      $('#lat').text("Latitude :  "+data.trip[index].lat + " N");
+    }else if(data.trip[index].lat < 0){
+      $('#lat').text("Latitude :  "+data.trip[index].lat + " S");
+    }else{
+      $('#lat').text("Latitude :  "+data.trip[index].lat);
+    }
+    
+    if(data.trip[index].lng > 0){
+      $('#lng').text("Longitude: "+data.trip[index].lng + " E");
+    }else if(data.trip[index].lng < 0){
+      $('#lng').text("Longitude: "+data.trip[index].lng + " W");
+    }else{
+      $('#lng').text("Longitude: "+data.trip[index].lng);
+    }
+    
     $('#msg').text("Message    : "+data.trip[index].text);
   }
 }
@@ -47,7 +62,7 @@ function LoadMap(fileSelectionPath){                                //map initia
     var latLng = new google.maps.LatLng(parseFloat(data.trip[1].lat),parseFloat(data.trip[1].lng)); 
     var map = new google.maps.Map(                  																							//Create the map, centered at the first cords
               document.getElementById('map'), {zoom: 13, center: latLng });
-    for(var i=1; i<data.trip.length; i++){																												//Insert all of the pins on the map
+    for(var i = 1; i < data.trip.length; i++){																												//Insert all of the pins on the map
       var LatLong = new google.maps.LatLng(parseFloat(data.trip[i].lat),parseFloat(data.trip[i].lng)); 
       var marker = new google.maps.Marker({
         position: LatLong,

@@ -3,9 +3,8 @@
 
 
 #map {
-  height: 700px;  /* The height is 400 pixels */
-  width: 67%;/* The width is the width of the web page */
-  float: left;}
+  height: 700px; 
+  min-width: 400px;}
 a.tripmenu{
   color:black;}
 #mapMenu{
@@ -17,17 +16,25 @@ a.tripmenu{
   border: solid;
   border-color: black;}
 #info{
-  float: left;
   margin-left: 20px;
   padding: 15px 15px 15px 15px;
   background-color: white;
   border: solid;
   border-color: black;
-  width: 250px;}
+  width: 250px;
+  display: inline;}
 p.infotxt{
   color:black;}
 #texting{
   text-align: center;}
 #MainBlock{
-  width: 100%;}
-
+  position: relative;
+  margin: 5px 5px 5px 5px;
+  white-space: nowrap;
+  min-width:200px;
+  width: auto !important;
+  width: 100%; }
+#mapMenu, #info, #map{
+  display:inline-block;
+  white-space: normal;
+  vertical-align: top;}

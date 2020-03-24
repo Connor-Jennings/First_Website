@@ -55,6 +55,11 @@ function LoadPinInfo(index, data){                              //Updating Info 
   }
 }
 
+function ResizeMap(){
+  var WindowWidth = window.innerWidth;
+  $('#map').width(WindowWidth*0.7);
+}
+
 function LoadMap(fileSelectionPath){                                //map initialization
   LoadPinInfo(0,0);                                                   //reset pin info column
   $.getJSON(fileSelectionPath)
@@ -73,6 +78,7 @@ function LoadMap(fileSelectionPath){                                //map initia
         var index = this.getZIndex();
         LoadPinInfo(index, data);
       });
+      ResizeMap();
     }
   }).fail(function(){
     alert("The map failed to load");
@@ -100,11 +106,10 @@ $(function(){                                             //when DOM is ready
     LoadMap($valued);
   });
   
-  
- 
-  $('li').on('mouseout', function(){           //removes items in the menu after hovering
-     $(this).children('a').remove();
+  $(window).on('resize',function(){           //Event Listener for Map resize 
+    ResizeMap();
   });
+  
 });
 
 

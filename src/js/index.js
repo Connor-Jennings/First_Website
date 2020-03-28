@@ -11,14 +11,7 @@ function LastKnown(){
    });
 }
 
-/*
-function FormatImages(){
-   for(var i=0; i<10; ++i){
-      $('img').css('width:500px','height:500px');
-   }
-}
 
-*/
 
 $(function(){                                         //When the DOM is ready
    $.ajax({
@@ -35,11 +28,8 @@ $(function(){                                         //When the DOM is ready
    $("#anchor-tag").lightSlider({      //settings for photo slider
       gallery:true,
       item:1,
-   width:500,
-   height:400,
-   verticalHeight:295,
   
-      adaptiveHeight:false,
+      adaptiveHeight:true,
       autoWidth:false,
       vThumbWidth:50,
       vThumbHeight:50,
@@ -62,6 +52,6 @@ $(function(){                                         //When the DOM is ready
       freeMove:true,
       swipeThreshold: 40
    });
-   $('#0').css('height:500;');
+
    
 });

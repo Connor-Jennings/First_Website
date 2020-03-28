@@ -25,16 +25,16 @@ function LoadTripData(path){
 function LoadMenu(){                                          //loads in list of trip choices
   $.getJSON('data/tripList.json')
   .done(function(data){
-    var items = '<input type="radio" class="tripList" name="tripList" value="allTrips"> All Trips  ';
+    var items = '<input type="radio" id="AT" name="tripList" value="allTrips"><label for="AT"> All Trips </label> ';
     for(var i = 0; i<data.tripList.length; i++){
-      items += '<input type="radio"';
-      items += 'class="tripList"';
+      items += '  <input type="radio"';
+      items += 'id="' + i + '"';
       items +=' name="tripList"';
-      items +=' value="';
-      items += data.tripList[i].path;
-      items +='">  ';
+      items +=' value="' + data.tripList[i].path + '">  ';
+			items +='<label for="' + i + '">';
       items += data.tripList[i].title;
-    }
+			items +='  </label>  ';
+		}
 		items += '';
     $('#ControlPanel').prepend(items);
   })

@@ -1,6 +1,7 @@
 
 {
 	"tripList":[
+		{"title": "Last Known", "path": "data/lastTransmission.json"},
 		{"title": "trip1", "path": "data/testTrip.json"},
 		{"title": "trip2", "path": "data/test2.json"},
 		{"title": "trip3", "path": "data/testTrip.json"},

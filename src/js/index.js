@@ -4,8 +4,8 @@
 function LastKnown(){
    $.getJSON('data/lastTransmission.json')                   //Try to collect JSON data
    .done(function(data){                        //Build image elements
-      $('.emergencyStatus p.1').text(data.last.status);
-      $('.lastKnownLocation p.1').text(data.last.lat+" "+data.last.lng);
+      $('.emergencyStatus p.1').text(data.trip[1].status);
+      $('.lastKnownLocation p.1').text(data.trip[1].lat+" "+data.trip[1].lng);
    }).fail(function(){
           alert("Bad connection to server... try reloading");
    });
@@ -37,7 +37,7 @@ $(function(){                                         //When the DOM is ready
       thumbItem:6,
       slideMargin:0,
       loop: true,
-      pause: 5000,
+      pause: 3000,
       pauseOnHover: true,
       
       auto:true,

@@ -4,6 +4,10 @@
     margin-top: 5%;
     margin-bottom: 50px;
     text-align: center;}
+label{
+    color: black;
+    font-family: monospace;
+    font-size: 15pt;}
 table {
     width: 100%;
     border-collapse: collapse;

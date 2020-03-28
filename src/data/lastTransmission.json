@@ -1,5 +1,8 @@
 
 
 {
-    "last":   {"lat": "32.9854", "lng": "-117.1642", "timeStamp": "19:22", "text": "I am still alive", "status": "Safe"}
+    "trip":[
+		{"title":"Last Known"},
+		{"lat": "32.9854", "lng": "-117.1642", "timeStamp": "19:22", "text": "I am still alive", "status": "Safe"}
+	]
 }

@@ -2,32 +2,17 @@
 //This page contains the JavaScript for the Home page
 
 
-function LoadTripData(path, cleardata){
+function LoadTripData(path){
 	$.getJSON(path)
 	.done(function(data){
-		if(cleardata === false){
-			for(var i = 1; i<data.trip.length; i++){
-				var content = '<tr>';
-				content += '<th>' + data.trip[i].timeStamp + '</th>';
-				content += '<th>' + data.trip[i].lat + '</th>';
-				content += '<th>' + data.trip[i].lng + '</th>';
-				content += '<th>' + data.trip[i].text + '</th>';
-				content += '<tr>';
-				$('#Table').append(content);
-			}
-		}else{
-			var content2 = '';
-			for(var z = 1; z<data.trip.length; z++){
-				content2 += '<tr>';
-				content2 += '<th>' + data.trip[z].timeStamp + '</th>';
-				content2 += '<th>' + data.trip[z].lat + '</th>';
-				content2 += '<th>' + data.trip[z].lng + '</th>';
-				content2 += '<th>' + data.trip[z].text + '</th>';
-				content2 += '<tr>';
-			}
-			$('#Table').empty();
-			$('#Table').html('<tr><th>Timestamp</th><th>Latitude</th><th>Longitude</th><th class="msg">Message</th></tr>');
-			$('#Table').append(content2);
+		for(var i = 1; i<data.trip.length; i++){
+			var content = '<tr class="' + path +'">';
+			content += '<th>' + data.trip[i].timeStamp + '</th>';
+			content += '<th>' + data.trip[i].lat + '</th>';
+			content += '<th>' + data.trip[i].lng + '</th>';
+			content += '<th>' + data.trip[i].text + '</th>';
+			content += '</tr>';
+			$('#Table').append(content);
 		}
 	})
 	.fail(function(){
@@ -60,14 +45,12 @@ function LoadMenu(){                                          //loads in list of
 
 
 
-function InitializePage(loadMenu){                                          //loads in list of trip choices
+function InitializePage(){                                          //loads in list of trip choices
   $.getJSON('data/tripList.json')
   .done(function(data){
-		if(loadMenu === true){
-			LoadMenu();
-		}
+		LoadMenu();
     for(var i = 0; i<data.tripList.length; i++){
-			LoadTripData(data.tripList[i].path, false);
+			LoadTripData(data.tripList[i].path);
     }
   })
   .fail(function(){
@@ -75,21 +58,23 @@ function InitializePage(loadMenu){                                          //lo
   });
 }
 
-
+function DisplayData($valued){
+	if($valued === 'allTrips'){
+		$('tr').show();
+	}else{
+		$('tr').hide();
+		$('tr.head').show();
+		$('tr[class="'+ $valued +'"]').show();
+	}
+}
 
 $(function(){
 	
-	InitializePage(true);
+	InitializePage();
 	
 	$('input[value="Refresh_Log"]').on('click', function(){      //event listener for updating the Log
     var $valued = $('input:checked').val();
-		if($valued === 'allTrips'){
-				$('#Table').empty();
-				$('#Table').html('<tr><th>Timestamp</th><th>Latitude</th><th>Longitude</th><th class="msg">Message</th></tr>');
-				InitializePage(false);
-		}else{
-			LoadTripData($valued, true);
-		}
+		DisplayData($valued);
   });
 	 
 });

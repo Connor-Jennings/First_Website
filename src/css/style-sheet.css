@@ -30,7 +30,7 @@ p.HAM{
     display: inline;
     color: white;
     float: right; }
-ul li{
+ul.menu li{
     color: white;
     display: inline;
     margin: 0px 20px;
@@ -41,7 +41,7 @@ a:link{
     cursor: crosshair;}
 a:visited{
     color: white; } 
-ul li:hover, a:hover{
+ul.menu li:hover, a:hover{
     text-decoration: underline;} 
 
 

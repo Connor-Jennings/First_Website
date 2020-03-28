@@ -97,6 +97,9 @@ $(function(){                                             //when DOM is ready
       }
    });
   
+  var WindowWidth = window.innerWidth;
+  $('body').width(WindowWidth);
+  
 	LoadMenu();                        //Initialize the Menu
   LoadMap('data/testTrip.json');    // Initialize the Mao 
   

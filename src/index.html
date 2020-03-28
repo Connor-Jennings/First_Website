@@ -2,6 +2,7 @@
 <html>
     <head>
         <title> Home Page </title>
+        <!--CSS-->
         <link href="css/style-sheet.css" type="text/css" rel="stylesheet" />
         <link href="css/indexStyleSheet.css" type="text/css" rel="stylesheet" />
         <link href="css/lightslider.css" type="text/css" rel="stylesheet" />
@@ -17,68 +18,37 @@
             <li><a href="about.html">About</a></li>
             <p class="HAM">KN6COG</p>
         </ul>
-        <!-- End Menu -->
-        
-        <h1 class="title"> Welcome to my project. </h1>
-        
-        <div class="status">
-            <p id="emergencyStatus"> <a class="emergencyLink">Emergency Status :</a> Probably Not In Danger </p>
-            <p id="lastKnownLocation"><a>Last Known Location</a> : 35.3606 N, 138.7274 E</p>
-            <br><br><br>
-        </div>
-        
-       
-        <p id="siteMap"> Click "Photos" to load in some photos<br> It's not already loaded because it would slow down the page and the server sucks.</p>
-     
-     
-        <h2 class="gallery">Photos</h2>
-        <div class="photos">
-            <p class="txt">
-            +++++++++++++#######+++++++++++++++++<br>
-            +++++++++++############++++++++++++++<br>
-            ++++++++++###############++++++++++++<br>
-            +++++++++#####++++++++###++++++++++++<br>
-            ++++++++###++++++++++++###+++++++++++<br>
-            ++++++++##++++++++++++++###++++++++++<br>
-            +++++++##+++++++++++++++####+++++++++<br>
-            +++++++#+++++++++++++++++###+++++++++<br>
-            ++++++##+++++++++++++++++####++++++++<br>
-            ++++++#+++++++++++++++##++###++++++++<br>
-            +++++##++++++++++++############++++++<br>
-            +++++##++++++++#+++##+####+####++++++<br>
-            +++++##++++#####+++#++#####+####+++++<br>
-            +++++##+++##+###+++#+++****++####++++<br>
-            +++++##+++++#++#+++#+++++++++##++++++<br>
-            +++++##+++++++++++++#+++++++##+#+++++<br>
-            +++++#+++++++++++++++#++++++##+#+++++<br>
-            ++++++#+++++++++++++#++++++####++++++<br>
-            ++++++##+++++++++++####++++####++++++<br>
-            ++++++++++++++++++####++++++####+++++<br>
-            +++++##+#+++++++++++++++++++##+#+++++<br>
-            +++++#++++++++++++++##++++++####+++++<br>
-            +++++#++++++++++++######++++##+++++++<br>
-            +++++#+#+#+++++++##+++#+++++##+++++++<br>
-            ++++++#++#++++++##+++###++++##+++++++<br>
-            +++++++#++++++++++++++++++#####++++++<br>
-            +++++++++#+++++++++++#++++#####++++++<br>
-            +++++++++++#+++++++++++++############<br>
-            ++++++++++++#+++++++++++#############<br>
-            +++++++++++++#++++++++###############<br>
-            ++++++++++++++##++++########+########<br>
-            +++++++++++++#++###########++########<br>
-            +++++++++++###+++#########++#########<br>
-            ++++++++#######++++######+++#########<br>
-            ++++++#########+++++++##++++#########<br>
-            +++++##########+++++###++++##########<br>
-            +++############+++++#++++++##########<br>
-            ++##############++++#++++++##########<br>
-            ++##############++++++++++###########<br></p>
-            <div class="demo" id="imgs">
-                <ul class="list-unstyled row" id="anchor-tag">
-                </ul>
+        <!--Text Content-->
+        <h1 class="title"> Project Found</h1>
+        <div class="content">
+            <div class="emergencyStatus">
+                <p><a class="emergencyLink">Emergency Status :</a></p> <p class="1">Sup fellow dev</p>
             </div>
+            <div class="lastKnownLocation">
+                <p><a>Last Known Location :</a></p><p class="1"> : 35.3606 N, 138.7274 E</p>
+            </div>
+       </div>
+
+        <!--Photo Slider-->
+        <div class="demo" id="imgs">
+            <ul class="list-unstyled row" id="anchor-tag">
+                <li data-thumb="images/mapPics/IMG_2176.JPEG" data-src="images/mapPics/IMG_2176.JPEG"><img id="0" src="images/mapPics/IMG_2176.JPEG"/></li>
+                <li data-thumb="images/mapPics/IMG_0180.JPEG" data-src="images/mapPics/IMG_0180.JPEG"><img id="1" src="images/mapPics/IMG_0180.JPEG"/></li>
+                <li data-thumb="images/mapPics/IMG_5736.JPEG" data-src="images/mapPics/IMG_5736.JPEG"><img id="2" src="images/mapPics/IMG_5736.JPEG"/></li>
+                <li data-thumb="images/mapPics/IMG_8636.jpg" data-src="images/mapPics/IMG_8636.jpg">  <img id="2" src="images/mapPics/IMG_8636.jpg"/></li>
+                <li data-thumb="images/mapPics/IMG_5196.jpg" data-src="images/mapPics/IMG_5196.jpg">  <img id="3" src="images/mapPics/IMG_5196.jpg"/></li>
+                <li data-thumb="images/mapPics/IMG_39801.jpg" data-src="images/mapPics/IMG_39801.jpg"><img id="4" src="images/mapPics/IMG_39801.jpg"/></li>
+                <li data-thumb="images/mapPics/IMG_6766.jpg" data-src="images/mapPics/IMG_6766.jpg">  <img id="5" src="images/mapPics/IMG_6766.jpg"/></li>
+                <li data-thumb="images/mapPics/IMG_2312.JPEG" data-src="images/mapPics/IMG_2312.JPEG"><img id="6" src="images/mapPics/IMG_2312.JPEG"/></li>
+                <li data-thumb="images/mapPics/IMG_5994.JPEG" data-src="images/mapPics/IMG_5994.JPEG"><img id="7" src="images/mapPics/IMG_5994.JPEG"/></li>
+                <li data-thumb="images/mapPics/IMG_18291.jpg" data-src="images/mapPics/IMG_18291.jpg"><img id="8" src="images/mapPics/IMG_18291.jpg"/></li>
+                <li data-thumb="images/mapPics/IMG_48801.jpg" data-src="images/mapPics/IMG_48801.jpg"><img id="9" src="images/mapPics/IMG_48801.jpg"/></li>
+                <li data-thumb="images/mapPics/IMG_1745.jpg" data-src="images/mapPics/IMG_1745.jpg">  <img id="10" src="images/mapPics/IMG_1745.jpg"/></li>
+                <li data-thumb="images/mapPics/IMG_17251.jpg" data-src="images/mapPics/IMG_17251.jpg"><img id="11" src="images/mapPics/IMG_17251.jpg"/></li>
+                <li data-thumb="images/mapPics/IMG_1202.jpg" data-src="images/mapPics/IMG_1202.jpg">  <img id="12" src="images/mapPics/IMG_1202.jpg"/></li>
+                <li data-thumb="images/mapPics/IMG_0665.JPEG" data-src="images/mapPics/IMG_0665.JPEG"><img id="13" src="images/mapPics/IMG_0665.JPEG"/></li>
+            </ul>
         </div>
-        
         
         <!-- Footer -->
         <div class="footer"><a>Go outside </a></div>

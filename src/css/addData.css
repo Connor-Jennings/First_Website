@@ -1,0 +1,10 @@
+
+table, tr, input{
+	border: solid;
+	border-color: #000000;
+}
+td{
+	width:500px;
+	text-align: center;
+	color: #000000;
+}

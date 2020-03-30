@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>DATA_PORT</title>
+		<link href="css/addData.css" type="text/css" rel="stylesheet" />
+	</head>
+	<body>
+		<form action="php/updateData.php" method="post">
+			<table>
+				<tr>
+					<td colspan="2">ENTER DATA ::</td>
+				</tr>
+				<tr>
+					<td> Trip Name</td>
+					<td><input type="text" name="title"></td>
+				</tr>
+				<tr>
+					<td>Latitude </td>
+					<td><input type="text" name="lat"></td>
+				</tr>
+				<tr>
+					<td>Longitude </td>
+					<td><input type="text" name="lng"></td>
+				</tr>
+				<tr>
+					<td>Timestamp </td>
+					<td><input type="text" name="timeStamp"></td>
+				</tr>
+				<tr>
+					<td>Text </td>
+					<td><input type="text" name="txt"></td>
+				</tr>
+				<tr>
+					<td>Status </td>
+					<td><input type="text" name="status"></td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="submit" value="Update"></td>
+				</tr>
+			</table>
+			
+		</form>
+	</body>
+</html>
+
+<!--
+{"lat": "32.9854", "lng": "-117.1642", "timeStamp": "19:22", "text": "I am still alive", "status": "Safe"}
+-->

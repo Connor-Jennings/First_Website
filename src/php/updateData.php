@@ -51,14 +51,13 @@
 		//print "key : $key  ||  val: $val <br>";
 	}
 	
-	//update Last Known
+	//update Last Known Location
 	{
 		$filePath = "../data/lastTransmission.json";
 		$name = array('title' => 'Last Known');
 		$Jdata = array('trip' => array($name, $data));
 		$JsonData = json_encode($Jdata);
 		file_put_contents("../data/lastTransmission.json", $JsonData);
-		echo "this is running";
 	}
 	
 	//if the trip is already created, update it 

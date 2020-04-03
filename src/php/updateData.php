@@ -2,14 +2,18 @@
 
 
 <?php //This page updates the data in the server when a new location is submitted  
+	ini_set('display_errors', 1);
+	ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL);
+	
 	
 	//get input from form 
-	$title 		= $_POST['title'];
-	$lat 		= $_POST['lat'];
-	$lng 		= $_POST['lng'];
-	$timeStamp  = $_POST['timeStamp'];
+	$title 		= trim($_POST['title']);
+	$lat 		= trim($_POST['lat']);
+	$lng 		= trim($_POST['lng']);
+	$timeStamp  = trim($_POST['timeStamp']);
 	$text 		= $_POST['txt'];
-	$status 	= $_POST['status'];
+	$status 	= trim($_POST['status']);
 	
 	//format data into JSON style
 	$data = array(

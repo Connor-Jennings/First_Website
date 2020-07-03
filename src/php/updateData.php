@@ -1,101 +1,98 @@
-
-
-
 <?php //This page updates the data in the server when a new location is submitted  
 	ini_set('display_errors', 1);
 	ini_set('display_startup_errors', 1);
 	error_reporting(E_ALL);
 	
+
+	// check for errors
+	if(!isset($_POST['title']) || !isset($_POST['lat']) || !isset($_POST['lng'])){
+	    echo '<p>Not enough data entered</p>';
+		exit;
+	}
 	
 	//get input from form 
 	$title 		= trim($_POST['title']);
 	$lat 		= trim($_POST['lat']);
 	$lng 		= trim($_POST['lng']);
 	$timeStamp  = trim($_POST['timeStamp']);
-	$text 		= $_POST['txt'];
-	$status 	= trim($_POST['status']);
-	
-	//format data into JSON style
-	$data = array(
-		'lat'         =>  $lat, 		
-	    'lng'         =>  $lng, 		
-	    'timeStamp'   =>  $timeStamp,  
-	    'text'        =>  $text, 		
-	    'status'      =>  $status 	
-	);
-	
-	//display input
-	echo " Title: $title<br> Latitude: $lat<br> Longitude: $lng<br> Timestamp: $timeStamp <br> Text: $text <br> Status: $status <br>";
-	
-	//check for errors
-	if($title ==="" || $lat ==="" || $lng ===""){
+	$txt 		= $_POST['txt'];
+
+	// attempt connection to database
+	$db = new mysqli('localhost', 'pi', 'raspberry', 'Notitia');
+	if(mysqli_connect_errno()){
+		echo '<p>Error: Could not connect to database.<br/></p>';
 		exit;
 	}
+
+	// display input
+	echo " Title: $title<br> Latitude: $lat<br> Longitude: $lng<br> Timestamp: $timeStamp <br> Text: $txt ";
 	
-	
-	
-	//get path to trip
-	$tripList = file_get_contents("../data/tripList.json");
-	$jsonIterator = new RecursiveIteratorIterator(
-		new RecursiveArrayIterator(json_decode($tripList, TRUE)),
-		RecursiveIteratorIterator::SELF_FIRST);
-	
-	$path = 0;
-	$getPath = FALSE;
-	foreach ($jsonIterator as $key => $val){
-		if(!is_array($val)){
-			if($getPath === TRUE){
-				$path = $val;
-				$getPath = FALSE;
-			}
-			if($val == $title) {
-				$getPath = TRUE;
-			}
+	$new_trip = false;
+	// check if title is a new trip
+	$query = "SELECT * FROM trip_list WHERE TITLE='".$title."'";
+	$stmt = $db->prepare($query);
+	$stmt->execute();
+	$stmt->store_result();
+	if($stmt->num_rows == 0){
+		$new_trip = true;
+	}
+
+	// start new trip 
+	if($new_trip){
+		// add data to trip_log
+		$log_query = "INSERT INTO trip_log (LAT, LNG, TIMESTMP, TXT) VALUES (?, ?, ?, ?)";
+		$log_stmt = $db->prepare($log_query);
+		$log_stmt->bind_param('ddss', $lat, $lng, $timeStamp, $txt);
+		$log_stmt->execute();
+		$log_stmt->store_result();
+
+		// create new element in trip_list
+		$list_query = "INSERT INTO trip_list (TITLE, FRST, LST ) VALUES ('".$title."', (SELECT MAX(IT) FROM trip_log), (SELECT MAX(IT) FROM trip_log));"; 
+		$list_stmt = $db->prepare($list_query);
+		$list_stmt->execute();
+		$list_stmt->store_result();
+
+		// check if anything was changed
+		if($log_stmt->affected_rows > 0 && $list_stmt->affected_rows >0){
+			echo '<p>New trip has been started </p><a href="../addData.html">BACK</a></p>';
 		}
-		//print "key : $key  ||  val: $val <br>";
-	}
-	
-	//update Last Known Location
-	{
-		$filePath = "../data/lastTransmission.json";
-		$name = array('title' => 'Last Known');
-		$Jdata = array('trip' => array($name, $data));
-		$JsonData = json_encode($Jdata);
-		file_put_contents("../data/lastTransmission.json", $JsonData);
-	}
-	
-	//if the trip is already created, update it 
-	if($path !== 0){
-		$newJSON = file_get_contents("../$path");
-		$tempArray = json_decode($newJSON, TRUE);
-		array_push($tempArray["trip"], $data);
-		$JsonData = json_encode($tempArray);
-    
-		file_put_contents("../$path", $JsonData);
-		print("<br>Data :: <br>".$JsonData);
-		echo '<p>Trip Updated... <p> <p><a href="../addData.html">back</a></p>';
-		exit;
-	}
-	
-	//Create new trip if the path doesn't match
-	else{
-		//create new file with provided data 
-		$filePath = "data/$title.json";
-		$name = array('title' => $title);
-		$Jdata = array('trip' => array($name, $data));
-		$JsonData = json_encode($Jdata);
-		file_put_contents("../$filePath", $JsonData);
+		else{
+			echo '<p>Update Failed </p><a href="../addData.html">BACK</a></p>';
+		}
 		
-		//update the tripList
-		$tempArray = json_decode($tripList, TRUE);
-		$newTripInfo = array('title'=>$title, 'path'=>$filePath);
-		array_push($tempArray["tripList"], $newTripInfo);
-		$newTripList = json_encode($tempArray);
-		file_put_contents("../data/tripList.json", $newTripList);
+		// free things up
+		$log_stmt->free_result();
+		$list_stmt->free_result();
 	}
-	
-	
-	echo '<p>New trip has been started..</p><a href="../addData.html">back</a></p>';
-	
+	else{ 
+		// add data to trip_log
+		$log_query = "INSERT INTO trip_log (LAT, LNG, TIMESTMP, TXT) VALUES (?,?,?,?)";
+		$log_stmt = $db->prepare($log_query);
+	    $log_stmt->bind_param('ddss', $lat, $lng, $timeStamp, $txt);
+		$log_stmt->execute();
+		$log_stmt->store_result();
+
+		// update END marker for the current trip in trip_list
+		$list_query = "UPDATE trip_list SET LST = (SELECT MAX(IT) FROM trip_log) WHERE TITLE = '".$title."';";
+		$list_stmt = $db->prepare($list_query);
+		$list_stmt->execute();
+		$list_stmt->store_result();
+		
+		// check if anything was changed
+		if($log_stmt->affected_rows > 0 && $list_stmt->affected_rows >0){
+			echo '<p>Current trip has been updated </p><a href="../addData.html">BACK</a></p>';
+		}
+		else{
+			echo '<p>Update Failed </p><a href="../addData.html">BACK</a></p>';
+		}
+
+		// free things up
+		$log_stmt->free_result();
+		$list_stmt->free_result();
+	}
+
+	// free everything up
+	$stmt->free_result();
+	$db->close();
 ?>
 

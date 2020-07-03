@@ -29,7 +29,7 @@
 	
 	$new_trip = false;
 	// check if title is a new trip
-	$query = "SELECT TITLE FROM trip_list";
+	$query = "SELECT * FROM trip_list WHERE TITLE='".$title."'";
 	$stmt = $db->prepare($query);
 	$stmt->execute();
 	$stmt->store_result();
@@ -37,36 +37,58 @@
 		$new_trip = true;
 	}
 
-	// start new trip
+	// start new trip 
 	if($new_trip){
 		// add data to trip_log
 		$log_query = "INSERT INTO trip_log (LAT, LNG, TIMESTMP, TXT) VALUES (?, ?, ?, ?)";
 		$log_stmt = $db->prepare($log_query);
 		$log_stmt->bind_param('ddss', $lat, $lng, $timeStamp, $txt);
 		$log_stmt->execute();
+		$log_stmt->store_result();
 
 		// create new element in trip_list
-		$list_query = "INSERT INTO trip_list (TITLE, FRST, LST ) VALUES ((SELECT * FROM Table trip_log BY IT DESC LIMIT 1), (SELECT * FROM Table trip_log BY IT DESC LIMIT 1));"; 
+		$list_query = "INSERT INTO trip_list (TITLE, FRST, LST ) VALUES ('".$title."', (SELECT MAX(IT) FROM trip_log), (SELECT MAX(IT) FROM trip_log));"; 
 		$list_stmt = $db->prepare($list_query);
 		$list_stmt->execute();
+		$list_stmt->store_result();
 
+		// check if anything was changed
 		if($log_stmt->affected_rows > 0 && $list_stmt->affected_rows >0){
 			echo '<p>New trip has been started </p><a href="../addData.html">BACK</a></p>';
 		}
+		else{
+			echo '<p>Update Failed </p><a href="../addData.html">BACK</a></p>';
+		}
+		
+		// free things up
+		$log_stmt->free_result();
+		$list_stmt->free_result();
 	}
 	else{ 
 		// add data to trip_log
-		$log_query = "INSERT INTO trip_log VALUES (?, ?, ?, ?)";
+		$log_query = "INSERT INTO trip_log (LAT, LNG, TIMESTMP, TXT) VALUES (?,?,?,?)";
 		$log_stmt = $db->prepare($log_query);
-		$log_stmt->bind_param('ffss', $lat, $lng, $timeStamp, $txt);
+	    $log_stmt->bind_param('ddss', $lat, $lng, $timeStamp, $txt);
 		$log_stmt->execute();
+		$log_stmt->store_result();
 
 		// update END marker for the current trip in trip_list
-		$list_query = "UPDATE trip_list SET LST = (SELECT * FROM Table trip_log BY IT DESC LIMIT 1) WHERE TITLE = $title";
-		$list_stmt = $db->prepare($update_query);
+		$list_query = "UPDATE trip_list SET LST = (SELECT MAX(IT) FROM trip_log) WHERE TITLE = '".$title."';";
+		$list_stmt = $db->prepare($list_query);
 		$list_stmt->execute();
+		$list_stmt->store_result();
 		
-		echo '<p>Current trip has been updated </p><a href="../addData.html">BACK</a></p>';
+		// check if anything was changed
+		if($log_stmt->affected_rows > 0 && $list_stmt->affected_rows >0){
+			echo '<p>Current trip has been updated </p><a href="../addData.html">BACK</a></p>';
+		}
+		else{
+			echo '<p>Update Failed </p><a href="../addData.html">BACK</a></p>';
+		}
+
+		// free things up
+		$log_stmt->free_result();
+		$list_stmt->free_result();
 	}
 
 	// free everything up

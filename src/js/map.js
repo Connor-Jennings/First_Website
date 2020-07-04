@@ -89,6 +89,8 @@ function LoadMap(fileSelectionPath){                                //map initia
 
 
 $(function(){                                             //when DOM is ready
+  $.get("php/reloadjsonfiles.php")                        // Update JSON files with data in the mysql server
+
   $.ajax({
       beforeSend: function(xhr){
         if(xhr.overrideMimeType){                      //If supported

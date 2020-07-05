@@ -17,7 +17,7 @@
 	$unix_timeStamp  = trim($_POST['timeStamp']);
 	$txt 		= $_POST['txt'];
 
-	$timeStamp =  date("F j, Y, g:i a", $unix_timeStamp);  
+	$timeStamp =  date("F j, Y, g:i:s a", $unix_timeStamp);  
 
 	// attempt connection to database
 	$db = new mysqli('localhost', 'pi', 'raspberry', 'Notitia');

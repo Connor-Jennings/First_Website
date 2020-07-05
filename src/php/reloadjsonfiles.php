@@ -83,7 +83,7 @@
     $title = $trip_list_array[$it]->title;
     $trip_query = "SELECT * FROM last_transmission";
     $trip_result = $db->query($trip_query);
-    $row = $trip_result->fetch_assoc()
+    $row = $trip_result->fetch_assoc();
     $list_array = array();
     $list_array[0] = (object) ["title" => "Last Known Location" ];
     $list_array[1] = (object) ["lat" => $row["LAT"], "lng"=> $row["LNG"], "timeStamp"=> $row["TIMESTMP"], "text"=> $row["TXT"]];

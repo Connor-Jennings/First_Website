@@ -121,7 +121,7 @@ $(function(){                                             //when DOM is ready
   $('body').width(WindowWidth);
   
 	LoadMenu();                        //Initialize the Menu
-  LoadMap('data/lastTransmission.json');    // Initialize the Mao 
+  LoadMap('data/lastTransmission.json');    // Initialize the Map
   
   
   $('input[value="Refresh_Map"]').on('click', function(){      //event listener for updating the map 

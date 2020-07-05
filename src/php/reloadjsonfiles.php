@@ -83,7 +83,9 @@
     $title = $trip_list_array[$it]->title;
     $trip_query = "SELECT * FROM last_transmission";
     $trip_result = $db->query($trip_query);
-    $list_array = array((object) ["title" => "Last Known Location" ], (object) ["lat" => $row["LAT"], "lng"=> $row["LNG"], "timeStamp"=> $row["TIMESTMP"], "text"=> $row["TXT"]]);
+    $list_array = array();
+    $list_array[0] = (object) ["title" => "Last Known Location" ];
+    $list_array[1] = (object) ["lat" => $row["LAT"], "lng"=> $row["LNG"], "timeStamp"=> $row["TIMESTMP"], "text"=> $row["TXT"]];
     
     $JSONdata = json_encode((object)["trip"=> $list_array]);
     file_put_contents("../data/lastTransmission.json", $JSONdata);

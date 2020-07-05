@@ -95,7 +95,19 @@
 		$log_stmt->free_result();
 	}
 
+	// Update last_transmission
+	$last_query = "TRUNCATE TABLE last_transmission";
+	$last_stmt = $db->prepare($last_query);
+	$last_stmt->execute();
+	
+	$put_last_query = "INSERT INTO last_transmission (LAT, LNG, TIMESTMP, TXT) VALUES (?, ?, ?, ?)";
+	$final_stmt = $db->prepare($put_last_query);
+	$final_stmt->bind_param('ddss', $lat, $lng, $timeStamp, $txt);
+	$final_stmt->execute();
+	
 	// free everything up
+	$last_stmt->free_result();
+	$final_stmt->free_result();
 	$stmt->free_result();
 	$db->close();
 

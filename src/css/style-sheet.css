@@ -32,8 +32,7 @@ ul.menu li{
     font-size: 200%; }
 a:link{
     color: white;
-    text-decoration: none;
-    cursor: crosshair;}
+    text-decoration: none;}
 a:visited{
     color: white; } 
 ul.menu li:hover, a:hover{

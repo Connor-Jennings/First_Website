@@ -73,7 +73,7 @@ function LoadMap(fileSelectionPath){                                //map initia
                 });
     // polyline data
     
-    var pathCords = [null];
+    var pathCords = [];
 
   
     for(var i = 1; i < data.trip.length; i++){																												//Insert all of the pins on the map

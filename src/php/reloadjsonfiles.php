@@ -69,7 +69,7 @@
             }
            // echo "</table>";
     
-            // Put data into tripList.json file
+            // Put data into JSON file
             $JSONdata = json_encode((object)["trip"=> $list_array]);
             file_put_contents("../data/".$trip_list_array[$it]->title.".json", $JSONdata);
     

@@ -66,7 +66,16 @@ function LoadMap(fileSelectionPath){                                //map initia
   .done(function(data){
     var latLng = new google.maps.LatLng(parseFloat(data.trip[1].lat),parseFloat(data.trip[1].lng)); 
     var map = new google.maps.Map(                  																							//Create the map, centered at the first cords
-              document.getElementById('map'), {zoom: 13, center: latLng });
+              document.getElementById('map'), {
+                zoom: 13,
+                center: latLng,
+                mapTypeId: "terrain"
+                });
+    // polyline data
+    
+    var pathCords = [null];
+
+  
     for(var i = 1; i < data.trip.length; i++){																												//Insert all of the pins on the map
       var LatLong = new google.maps.LatLng(parseFloat(data.trip[i].lat),parseFloat(data.trip[i].lng)); 
       var marker = new google.maps.Marker({
@@ -78,8 +87,17 @@ function LoadMap(fileSelectionPath){                                //map initia
         var index = this.getZIndex();
         LoadPinInfo(index, data);
       });
+      pathCords[i-1] = {'lat' : parseFloat(data.trip[i].lat), 'lng' : parseFloat(data.trip[i].lng)};
       ResizeMap();
     }
+    var pathSketch = new google.maps.Polyline({
+      path: pathCords,
+      geodesic: true,
+      strokeColor: "#FF0000",
+      strokeOpacity: 1.0,
+      strokeWeight: 2
+    });
+    pathSketch.setMap(map);
   }).fail(function(){
     alert("The map failed to load");
   });

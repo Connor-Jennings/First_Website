@@ -3,7 +3,7 @@
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
 
-    // attempt connection to database
+    // --------------------  query database  ---------------------------
 	$db = new mysqli('localhost', 'pi', 'raspberry', 'Notitia');
 	if(mysqli_connect_errno()){
 	//	echo '<p>Error: Could not connect to database.<br/></p>';
@@ -17,16 +17,18 @@
     $result = $db->query($list_query);
     
     $trip_list_array = array(); // I will want the names of the trips later so this is in a bigger scope
-    $it = -1;                    // I will also want the number of trips 
+    $it = 0;                    // I will also want the number of trips 
     if ($result->num_rows > 0) {
         // fromat data from each frow 
       //  echo "<table><tr><th>TITLE</th><th>CREATED_ON</th></tr>";
-
+        $obj = (object) ["title" => "Last_Transmission", "path"=> "data/lastTransmission.json"];
+        $trip_list_array[$it] = $obj;
+        $it += 1;
         while($row = $result->fetch_assoc()) {
-            $it += 1;
             $row_obj = (object) ["title" => $row["TITLE"], "path"=> "data/".$row["TITLE"].".json"];
             $trip_list_array[$it] = $row_obj;
      //       echo "<tr><td>".$row["TITLE"]."</td><td>".$row["CREATED_ON"]."</td></tr>";
+            $it += 1;
         }
     //    echo "</table>";
 

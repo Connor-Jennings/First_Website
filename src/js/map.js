@@ -1,5 +1,29 @@
 
 //This page contains the JavaScript for the map page 
+//GLOABL variable bc im lazy
+dist = 0;
+
+function distance(lat1, lon1, lat2, lon2, unit) {
+	if ((lat1 == lat2) && (lon1 == lon2)) {
+		return 0;
+	}
+	else {
+		var radlat1 = Math.PI * lat1/180;
+		var radlat2 = Math.PI * lat2/180;
+		var theta = lon1-lon2;
+		var radtheta = Math.PI * theta/180;
+		var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+		if (dist > 1) {
+			dist = 1;
+		}
+		dist = Math.acos(dist);
+		dist = dist * 180/Math.PI;
+		dist = dist * 60 * 1.1515;
+		if (unit=="K") { dist = dist * 1.609344 }
+		if (unit=="N") { dist = dist * 0.8684 }
+		return dist;
+	}
+}
 
 function LoadMenu(){                                          //loads in list of trip choices
   $.getJSON('data/tripList.json')
@@ -35,7 +59,7 @@ function LoadMenu(){                                          //loads in list of
   });
 }
 
-function LoadPinInfo(index, data){                              //Updating Info column when pin is selected
+function LoadPinInfo(index, data, distnce){                              //Updating Info column when pin is selected
   if(data === 0){
     $('h3.infoTitle').text("click a pin, any pin");
     $('#timestamp').text("");
@@ -62,6 +86,9 @@ function LoadPinInfo(index, data){                              //Updating Info 
       $('#lng').text("Longitude: "+data.trip[index].lng);
     }  
     $('#msg').text("Message    : "+data.trip[index].text);
+
+
+    $('#distance').text("Total distance for trip : " + distnce + " miles");
   }
 }
 
@@ -71,7 +98,7 @@ function ResizeMap(){
 }
 
 function LoadMap(fileSelectionPath){                                //map initialization
-  LoadPinInfo(0,0);                                                   //reset pin info column
+  LoadPinInfo(0,0, dist);                                                   //reset pin info column
   $.getJSON(fileSelectionPath)
   .done(function(data){
     var latLng = new google.maps.LatLng(parseFloat(data.trip[1].lat),parseFloat(data.trip[1].lng)); 
@@ -95,7 +122,7 @@ function LoadMap(fileSelectionPath){                                //map initia
       });
       google.maps.event.addListener(marker,'click',function(){                //event listener for clicking on pins
         var index = this.getZIndex();
-        LoadPinInfo(index, data);
+        LoadPinInfo(index, data, dist);
       });
       pathCords[i-1] = {'lat' : parseFloat(data.trip[i].lat), 'lng' : parseFloat(data.trip[i].lng)};
       ResizeMap();
@@ -108,6 +135,13 @@ function LoadMap(fileSelectionPath){                                //map initia
       strokeWeight: 2
     });
     pathSketch.setMap(map);
+    // calc distance for the trip 
+    var it =0;
+    while(it< pathCords.length-1){
+      dist += distance(pathCords[it]['lat'], pathCords[it]['lng'], pathCords[it+1]['lat'], pathCords[it+1]['lng'])
+      ++i;
+    }
+
   }).fail(function(){
     alert("The map failed to load");
   });

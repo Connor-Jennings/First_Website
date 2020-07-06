@@ -6,6 +6,16 @@ function LoadMenu(){                                          //loads in list of
   .done(function(data){
     var items = '<div class="heading"><h2>Trip Menu</h2></div>';
     for(var i = 0; i<data.tripList.length; i++){
+      if(i == 0){
+        items += '<input type="radio"';
+        items += 'class="tripList"';
+        items +=' name="tripList"';
+        items +=' value="';
+        items += data.tripList[i].path;
+        items +='" checked>';
+        items += data.tripList[i].title;
+        items += '<br>';
+      }
       items += '<input type="radio"';
       items += 'class="tripList"';
       items +=' name="tripList"';

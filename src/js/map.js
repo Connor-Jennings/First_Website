@@ -116,6 +116,10 @@ function LoadMap(fileSelectionPath){                                //map initia
   
     for(var i = 1; i < data.trip.length; i++){																												//Insert all of the pins on the map
       var LatLong = new google.maps.LatLng(parseFloat(data.trip[i].lat),parseFloat(data.trip[i].lng)); 
+      // calc distance for the trip 
+      if (i < data.trip.length -1){
+        dist += distance(parseFloat(pathCords[i].lat),parseFloat(pathCords[i].lng), parseFloat(pathCords[i+1].lat),parseFloat(pathCords[i+1].lng))
+      }
       var marker = new google.maps.Marker({
         position: LatLong,
         map: map,
@@ -136,12 +140,6 @@ function LoadMap(fileSelectionPath){                                //map initia
       strokeWeight: 2
     });
     pathSketch.setMap(map);
-    // calc distance for the trip 
-    var it =0;
-    while(it< pathCords.length-1){
-      dist += distance(pathCords[it]['lat'], pathCords[it]['lng'], pathCords[it+1]['lat'], pathCords[it+1]['lng'])
-      ++i;
-    }
 
   }).fail(function(){
     alert("The map failed to load");

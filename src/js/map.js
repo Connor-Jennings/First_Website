@@ -15,15 +15,16 @@ function LoadMenu(){                                          //loads in list of
         items +='" checked>';
         items += data.tripList[i].title;
         items += '<br>';
+      }else{
+        items += '<input type="radio"';
+        items += 'class="tripList"';
+        items +=' name="tripList"';
+        items +=' value="';
+        items += data.tripList[i].path;
+        items +='">';
+        items += data.tripList[i].title;
+        items += '<br>';
       }
-      items += '<input type="radio"';
-      items += 'class="tripList"';
-      items +=' name="tripList"';
-      items +=' value="';
-      items += data.tripList[i].path;
-      items +='">';
-      items += data.tripList[i].title;
-      items += '<br>';
     }
     $('#listOfTripsd').html(items);
     $('#info').show();

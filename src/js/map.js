@@ -118,7 +118,7 @@ function LoadMap(fileSelectionPath){                                //map initia
       var LatLong = new google.maps.LatLng(parseFloat(data.trip[i].lat),parseFloat(data.trip[i].lng)); 
       // calc distance for the trip 
       if (i < data.trip.length-1){
-        dist += distance(parseFloat(pathCords[i].lat),parseFloat(pathCords[i].lng), parseFloat(pathCords[i+1].lat),parseFloat(pathCords[i+1].lng));
+        dist += distance(parseFloat(data.trip[i].lat),parseFloat(data.trip[i].lng), parseFloat(data.trip[i+1].lat),parseFloat(data.trip[i+1].lng));
       }
       var marker = new google.maps.Marker({
         position: LatLong,

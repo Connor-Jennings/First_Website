@@ -117,8 +117,8 @@ function LoadMap(fileSelectionPath){                                //map initia
     for(var i = 1; i < data.trip.length; i++){																												//Insert all of the pins on the map
       var LatLong = new google.maps.LatLng(parseFloat(data.trip[i].lat),parseFloat(data.trip[i].lng)); 
       // calc distance for the trip 
-      if (i < data.trip.length -1){
-        dist += distance(parseFloat(pathCords[i].lat),parseFloat(pathCords[i].lng), parseFloat(pathCords[i+1].lat),parseFloat(pathCords[i+1].lng))
+      if (i < data.trip.length-1){
+        dist += distance(parseFloat(pathCords[i].lat),parseFloat(pathCords[i].lng), parseFloat(pathCords[i+1].lat),parseFloat(pathCords[i+1].lng));
       }
       var marker = new google.maps.Marker({
         position: LatLong,

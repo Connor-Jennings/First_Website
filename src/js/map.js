@@ -1,7 +1,7 @@
 
 //This page contains the JavaScript for the map page 
 //GLOABL variable bc im lazy
-dist = 0;
+distn = 0;
 
 function distance(lat1, lon1, lat2, lon2, unit) {
 	if ((lat1 == lat2) && (lon1 == lon2)) {
@@ -99,7 +99,7 @@ function ResizeMap(){
 }
 
 function LoadMap(fileSelectionPath){                                //map initialization
-  LoadPinInfo(0,0, dist);                                                   //reset pin info column
+  LoadPinInfo(0,0, distn);                                                   //reset pin info column
   $.getJSON(fileSelectionPath)
   .done(function(data){
     var latLng = new google.maps.LatLng(parseFloat(data.trip[1].lat),parseFloat(data.trip[1].lng)); 
@@ -123,7 +123,7 @@ function LoadMap(fileSelectionPath){                                //map initia
       });
       google.maps.event.addListener(marker,'click',function(){                //event listener for clicking on pins
         var index = this.getZIndex();
-        LoadPinInfo(index, data, dist);
+        LoadPinInfo(index, data, distn);
       });
       pathCords[i-1] = {'lat' : parseFloat(data.trip[i].lat), 'lng' : parseFloat(data.trip[i].lng)};
       ResizeMap();

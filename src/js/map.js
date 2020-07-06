@@ -66,6 +66,7 @@ function LoadPinInfo(index, data, distnce){                              //Updat
     $('#lat').text("");
     $('#lng').text("");
     $('#msg').text("");
+    $('#distance').text("");
   }else{
     $('h3.infoTitle').text("Location # "+index);
     $('#timestamp').text("Timestamp: "+data.trip[index].timeStamp);

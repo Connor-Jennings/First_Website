@@ -60,8 +60,7 @@ function LoadPinInfo(index, data){                              //Updating Info 
       $('#lng').text("Longitude: "+data.trip[index].lng + " W");
     }else{
       $('#lng').text("Longitude: "+data.trip[index].lng);
-    }
-    
+    }  
     $('#msg').text("Message    : "+data.trip[index].text);
   }
 }

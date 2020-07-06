@@ -89,7 +89,7 @@ function LoadPinInfo(index, data, distnce){                              //Updat
     $('#msg').text("Message    : "+data.trip[index].text);
 
 
-    $('#distance').text("Total trip : " + distn + " miles");
+    $('#distance').text("Total trip : " + distn.toFixed(2) + " miles");
   }
 }
 

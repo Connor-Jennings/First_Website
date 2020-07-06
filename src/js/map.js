@@ -99,6 +99,7 @@ function ResizeMap(){
 }
 
 function LoadMap(fileSelectionPath){                                //map initialization
+  distn =0;
   LoadPinInfo(0,0, distn);                                                   //reset pin info column
   $.getJSON(fileSelectionPath)
   .done(function(data){

@@ -106,14 +106,20 @@ function LoadMap(fileSelectionPath){                                //map initia
     var latLng = new google.maps.LatLng(parseFloat(data.trip[1].lat),parseFloat(data.trip[1].lng)); 
     var map = new google.maps.Map(                  																							//Create the map, centered at the first cords
               document.getElementById('map'), {
-                zoom: 13,
+                zoom: 15,
                 center: latLng,
                 mapTypeId: "terrain"
                 });
     // polyline data
-    
     var pathCords = [];
 
+    // icon data
+    var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+    var icons = {
+      pin: {
+        icon : iconBase + ''
+      }
+    }
   
     for(var i = 1; i < data.trip.length; i++){																												//Insert all of the pins on the map
       var LatLong = new google.maps.LatLng(parseFloat(data.trip[i].lat),parseFloat(data.trip[i].lng)); 
@@ -124,7 +130,16 @@ function LoadMap(fileSelectionPath){                                //map initia
       var marker = new google.maps.Marker({
         position: LatLong,
         map: map,
-        zIndex: i
+        zIndex: i,
+        icon: {
+          path: google.maps.SymbolPath.CIRCLE,
+          fillColor: '#FF0000',
+          fillOpacity: 0.5,
+          strokeColor: '#FF0000',
+          strokeOpacity: 0.9,
+          strokeWeight: 1,
+          scale: 5
+        } 
       });
       google.maps.event.addListener(marker,'click',function(){                //event listener for clicking on pins
         var index = this.getZIndex();

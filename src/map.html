@@ -21,28 +21,34 @@
         <br>Click a trip in the trip menu to display the locations i have recorded. <br>
         On the map you can click a pin and the information associated with that pin will be displayed.<br><br>
         </p>
-       
+      
+     
         <div id="MainBlock">
-            <!-- control for map -->
-            <div id="mapMenu">
-                <form id="listOfTrips">
-                    <div id="listOfTripsd"></div>
-                    <input type="button" id="updateMap" value="Refresh_Map">
-                </form>
-            </div>
-            
-            <!-- This element contains the google map -->
-            <div id="map"></div>
-        
-            <!-- info for whats displayed on map selection -->
-            <div id="info">
-                <h3 class="infoTitle"></h3>
-                <p class="infotxt" id="timestamp"></p>
-                <p class="infotxt" id="lat"></p>
-                <p class="infotxt" id="lng"></p>
-                <p class="infotxt" id="distance"></p>
-                <p class="infotxt" id="msg"></p>
-            </div>
+            <table id="Table"></table>
+                <tr class="head">
+                    <th><!-- control for map -->
+                        <div id="mapMenu">
+                            <form id="listOfTrips">
+                                <div id="listOfTripsd"></div>
+                                <input type="button" id="updateMap" value="Refresh_Map">
+                            </form>
+                        </div>
+                    </th>
+                    <th>
+                        <div id="map"></div>
+                    </th>
+                    <th><!-- info for whats displayed on map selection -->
+                        <div id="info">
+                            <h3 class="infoTitle"></h3>
+                            <p class="infotxt" id="timestamp"></p>
+                            <p class="infotxt" id="lat"></p>
+                            <p class="infotxt" id="lng"></p>
+                            <p class="infotxt" id="distance"></p>
+                            <p class="infotxt" id="msg"></p>
+                        </div>
+                    </th>
+                </tr>
+            </table>
         </div>
         
       

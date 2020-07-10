@@ -81,20 +81,19 @@ function LoadPinInfo(index, data, distnce){                              //Updat
     $('#distance').text("Total trip : " + num + " miles");
 
     // calc and insert speed 
-    if(data.trip[index-1].unixTime == null){
+    if(data.trip[index-1].unixtime == null){
       $('#speed').text("Speed : n/a");
     }else{
-      speed = (data.trip[index].unixTime - data.trip[index-1].unixTime)/3600;
-      $('#speed').text("Speed : "+speed.toFixed(1)+"mph");
+      speed = (data.trip[index].unixtime - data.trip[index-1].unixtime)/3600;
+      $('#speed').text("Speed from last loc : "+speed.toFixed(1)+" mph");
     }
     
     // insert air pressure
     if(data.trip[index].bp == null){
       $('#bp').text("Air Pressure : n/a");
     }else{
-      pressure = int(data.trip[index].bp);
-      //pressure = pressure.toFixed(2);
-      $('#bp').text("Air Pressure : "+data.trip[index].bp+" kPa");
+      pressure = (data.trip[index].bp - 0);
+      $('#bp').text("Air Pressure : "+pressure.toFixed(4)+" kPa");
     }
 
     // insert latitude

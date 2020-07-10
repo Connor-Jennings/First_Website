@@ -85,16 +85,16 @@ function LoadPinInfo(index, data, distnce){                              //Updat
       $('#speed').text("Speed : n/a");
     }else{
       speed = (data.trip[index].unixTime - data.trip[index-1].unixTime)/3600;
-      $('#speed').text("Speed : "+speed.toFixed(0)+"mph");
+      $('#speed').text("Speed : "+speed.toFixed(1)+"mph");
     }
     
     // insert air pressure
     if(data.trip[index].bp == null){
       $('#bp').text("Air Pressure : n/a");
     }else{
-      pressure = float(data.trip[index].bp);
-      pressure = pressure.toFixed(2);
-      $('#bp').text("Air Pressure : "+pressure+" kPa");
+      pressure = int(data.trip[index].bp);
+      //pressure = pressure.toFixed(2);
+      $('#bp').text("Air Pressure : "+data.trip[index].bp+" kPa");
     }
 
     // insert latitude

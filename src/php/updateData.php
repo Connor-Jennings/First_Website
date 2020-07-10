@@ -1,4 +1,4 @@
-<?php //This page updates the data in the server when a new location is submitted  
+<?php // This page updates the data in the server when a new location is submitted  
 	ini_set('display_errors', 1);
 	ini_set('display_startup_errors', 1);
 	error_reporting(E_ALL);
@@ -10,7 +10,7 @@
 		exit;
 	}
 	
-	//get input from form 
+	// get input from form 
 	$title 		     = trim($_POST['title']);
 	$lat 		     = trim($_POST['lat']);
 	$lng 		     = trim($_POST['lng']);

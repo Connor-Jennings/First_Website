@@ -69,9 +69,32 @@ function LoadPinInfo(index, data, distnce){                              //Updat
     $('#distance').text("");
     $('#bp').text("");
   }else{
+    // insert trip title
     $('h3.infoTitle').text("Location # "+index);
-    $('#timestamp').text("Timestamp: "+data.trip[index].timeStamp);
+
+    // insert timestamp
+    $('#timestamp').text("Timestamp : "+data.trip[index].timeStamp);
+
+    // insert total miles
+    var num = distn.toFixed(2);
+    $('#distance').text("Total trip : " + num + " miles");
+
+    // calc and insert speed 
+    if(data.trip[index-1].unixTime == null){
+      $('#speed').text("Speed : n/a");
+    }else{
+      speed = (data.trip[index].unixTime - data.trip[index-1].unixTime)/3600;
+      $('#speed').text("Speed : "+speed.toFixed(0)+"mph");
+    }
     
+    // insert air pressure
+    if(data.trip[index].bp == null){
+      $('#bp').text("Air Pressure : n/a");
+    }else{
+      $('#bp').text("Air Pressure : "+data.trip[index].bp +" kPa");
+    }
+
+    // insert latitude
     if(data.trip[index].lat > 0){
       $('#lat').text("Latitude :  "+data.trip[index].lat + " N");
     }else if(data.trip[index].lat < 0){
@@ -80,25 +103,21 @@ function LoadPinInfo(index, data, distnce){                              //Updat
       $('#lat').text("Latitude :  "+data.trip[index].lat);
     }
     
+    // insert longitude
     if(data.trip[index].lng > 0){
-      $('#lng').text("Longitude: "+data.trip[index].lng + " E");
+      $('#lng').text("Longitude : "+data.trip[index].lng + " E");
     }else if(data.trip[index].lng < 0){
-      $('#lng').text("Longitude: "+data.trip[index].lng + " W");
+      $('#lng').text("Longitude : "+data.trip[index].lng + " W");
     }else{
-      $('#lng').text("Longitude: "+data.trip[index].lng);
+      $('#lng').text("Longitude : "+data.trip[index].lng);
     }  
-    if(data.trip[index].bp == null){
-      $('#bp').text("Air Pressure : n/a");
-    }else{
-      $('#bp').text("Air Pressure : "+data.trip[index].bp +" kPa");
-    }
+    
+    // insert message 
     if(data.trip[index].text == ""){
-      $('#msg').text("Message    : n/a");
+      $('#msg').text("Message : n/a");
     }else{
-      $('#msg').text("Message    : "+data.trip[index].text);
+      $('#msg').text("Message : "+data.trip[index].text);
     }
-    var num = distn.toFixed(2);
-    $('#distance').text("Total trip : " + num + " miles");
   }
 }
 

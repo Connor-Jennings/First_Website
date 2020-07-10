@@ -88,7 +88,7 @@ function LoadPinInfo(index, data, distnce){                              //Updat
       $('#lng').text("Longitude: "+data.trip[index].lng);
     }  
 
-    $('#bp').text("Air Pressure : "+data.trip[index].bp);
+    $('#bp').text("Air Pressure : "+data.trip[index].bp +" kPa");
     $('#msg').text("Message    : "+data.trip[index].text);
 
     var num = distn.toFixed(2);

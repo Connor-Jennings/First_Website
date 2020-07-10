@@ -93,7 +93,7 @@ function LoadPinInfo(index, data, distnce){                              //Updat
       $('#bp').text("Air Pressure : n/a");
     }else{
       //pressure = float(data.trip[index].bp);
-      $('#bp').text("Air Pressure : "+data.trip[index].bp+" kPa");
+      $('#bp').text("Air Pressure : "+str(data.trip[index].bp)+" kPa");
     }
 
     // insert latitude

@@ -87,10 +87,16 @@ function LoadPinInfo(index, data, distnce){                              //Updat
     }else{
       $('#lng').text("Longitude: "+data.trip[index].lng);
     }  
-
-    $('#bp').text("Air Pressure : "+data.trip[index].bp +" kPa");
-    $('#msg').text("Message    : "+data.trip[index].text);
-
+    if(data.trip[index].bp == null){
+      $('#bp').text("Air Pressure : n/a");
+    }else{
+      $('#bp').text("Air Pressure : "+data.trip[index].bp +" kPa");
+    }
+    if(data.trip[index].text == ""){
+      $('#msg').text("Message    : n/a");
+    }else{
+      $('#msg').text("Message    : "+data.trip[index].text);
+    }
     var num = distn.toFixed(2);
     $('#distance').text("Total trip : " + num + " miles");
   }

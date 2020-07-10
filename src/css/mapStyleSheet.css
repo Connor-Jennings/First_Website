@@ -1,17 +1,19 @@
 
-/*Style sheet for the map page */
+/*Style sheet for the map page 
 table {
   width: 100%;
   border-collapse: collapse;
   float:left;}
-body{
-  display: inline-block;}
+ */
 #map {
-  height: 700px; 
-  min-width: 400px;}
+  margin: auto;
+  padding: 10px;
+  height: 850px; 
+  width: 100%;}
 a.tripmenu{
   color:black;}
 #mapMenu{
+  display: inline-block;
   margin-right: 30px;
   margin-left: 10px;
   padding: 10px 20px 10px 20px; /*top right bottom left */
@@ -19,6 +21,10 @@ a.tripmenu{
   border: solid;
   border-color: black;}
 #info{
+  display: inline-block;
+  margin-right: 30px;
+  margin-left: 10px;
+  padding: 10px 20px 10px 20px; /*top right bottom left */
   background-color: white;
   border: solid;
   border-color: black;
@@ -28,13 +34,13 @@ p.infotxt{
 #texting{
   text-align: center;}
 #MainBlock{
-  position: relative;
-  margin: 5px 5px 5px 5px;
+  text-align: center;
+  position: center;
+  margin: auto;
   white-space: nowrap;
   min-width:200px;
-  width: auto !important;
+  /*width: auto !important;*/
   width: 100%; }
-#mapMenu, #info, #map{
-  display:inline-block;
+#mapMenu, #info{
   white-space: normal;
   vertical-align: top;}

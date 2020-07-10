@@ -70,7 +70,7 @@ function LoadPinInfo(index, data, distnce){                              //Updat
     $('#speed').text("");
     $('#bp').text("");
   }else{
-    // insert trip title
+    // insert pin number
     $('h3.infoTitle').text("Location # "+index);
 
     // insert timestamp
@@ -92,7 +92,7 @@ function LoadPinInfo(index, data, distnce){                              //Updat
     if(data.trip[index].bp == null){
       $('#bp').text("Air Pressure : n/a");
     }else{
-      $('#bp').text("Air Pressure : "+data.trip[index].bp.toFixed(2) +" kPa");
+      $('#bp').text("Air Pressure : "+(data.trip[index].bp).toFixed(2) +" kPa");
     }
 
     // insert latitude

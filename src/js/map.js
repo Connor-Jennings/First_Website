@@ -67,6 +67,7 @@ function LoadPinInfo(index, data, distnce){                              //Updat
     $('#lng').text("");
     $('#msg').text("");
     $('#distance').text("");
+    $('#bp').text("");
   }else{
     $('h3.infoTitle').text("Location # "+index);
     $('#timestamp').text("Timestamp: "+data.trip[index].timeStamp);
@@ -86,6 +87,8 @@ function LoadPinInfo(index, data, distnce){                              //Updat
     }else{
       $('#lng').text("Longitude: "+data.trip[index].lng);
     }  
+
+    $('#bp').text("Air Pressure : "+data.trip[index].bp);
     $('#msg').text("Message    : "+data.trip[index].text);
 
     var num = distn.toFixed(2);

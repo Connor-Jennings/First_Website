@@ -48,7 +48,7 @@
                     $list_array[$item_number] = $row_obj;
             
                 }
-                $row_obj = (object) ["lat" => $row["LAT"], "lng"=> $row["LNG"], "timeStamp"=> (date("F j, Y, g:i:s a", $row["TIMESTMP"])), "unixtime"=> $row["TIMESTAMP"], "bp"=> $row["AIRPRESSURE"], "text"=> $row["TXT"]];
+                $row_obj = (object) ["lat" => $row["LAT"], "lng"=> $row["LNG"], "timeStamp"=> str((date("F j, Y, g:i:s a", $row["TIMESTMP"]))), "unixtime"=> $row["TIMESTAMP"], "bp"=> $row["AIRPRESSURE"], "text"=> $row["TXT"]];
                 $list_array[$item_number] = $row_obj;
                 
                 $item_number += 1;

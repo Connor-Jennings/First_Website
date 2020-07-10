@@ -14,12 +14,9 @@
 	$title 		     = trim($_POST['title']);
 	$lat 		     = trim($_POST['lat']);
 	$lng 		     = trim($_POST['lng']);
-	$unix_timeStamp  = trim($_POST['timeStamp']);
+	$timeStamp       = trim($_POST['timeStamp']);
 	$bp              = trim($_POST['BP']);
 	$txt 		     = $_POST['txt'];
-	
-
-	$timeStamp =  date("F j, Y, g:i:s a", $unix_timeStamp);  
 
 	// attempt connection to database
 	$db = new mysqli('localhost', 'pi', 'raspberry', 'Notitia');

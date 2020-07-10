@@ -61,7 +61,7 @@
                    
                 }
                 //{"lat":"32.9854","lng":"-117.1642","timeStamp":"19:22","text":"I am still alive"},
-                $row_obj = (object) ["lat" => $row["LAT"], "lng"=> $row["LNG"], "timeStamp"=> $row["TIMESTMP"], "bp"=> $row["AIRPRESSURE"] "text"=> $row["TXT"]];
+                $row_obj = (object) ["lat" => $row["LAT"], "lng"=> $row["LNG"], "timeStamp"=> $row["TIMESTMP"], "bp"=> $row["AIRPRESSURE"], "text"=> $row["TXT"]];
                 $list_array[$item_number] = $row_obj;
               //  echo "<tr><td>".$row["LAT"]."</td><td>".$row["LNG"]."</td></tr>";
                 

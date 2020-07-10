@@ -52,7 +52,7 @@
 		// add data to trip table
 		$log_query = "INSERT INTO $title (LAT, LNG, TIMESTMP, AIRPRESSURE, TXT) VALUES (?, ?, ?, ?, ?)";
 		$log_stmt = $db->prepare($log_query);
-		$log_stmt->bind_param('ddss', $lat, $lng, $timeStamp, $bp, $txt);
+		$log_stmt->bind_param('ddsss', $lat, $lng, $timeStamp, $bp, $txt);
 		$log_stmt->execute();
 		$log_stmt->store_result();
 
@@ -80,7 +80,7 @@
 		// add data to trip table
 		$log_query = "INSERT INTO $title (LAT, LNG, TIMESTMP, AIRPRESSURE, TXT) VALUES (?, ?, ?, ?, ?)";
 		$log_stmt = $db->prepare($log_query);
-		$log_stmt->bind_param('ddss', $lat, $lng, $timeStamp, $bp, $txt);
+		$log_stmt->bind_param('ddsss', $lat, $lng, $timeStamp, $bp, $txt);
 		$log_stmt->execute();
 		$log_stmt->store_result();
 
@@ -104,7 +104,7 @@
 	
 	$put_last_query = "INSERT INTO last_transmission (LAT, LNG, TIMESTMP, AIRPRESSURE, TXT) VALUES (?, ?, ?, ?, ?)";
 	$final_stmt = $db->prepare($put_last_query);
-	$final_stmt->bind_param('ddss', $lat, $lng, $timeStamp, $bp, $txt);
+	$final_stmt->bind_param('ddsss', $lat, $lng, $timeStamp, $bp, $txt);
 	$final_stmt->execute();
 	
 	// free everything up

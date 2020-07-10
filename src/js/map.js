@@ -67,6 +67,7 @@ function LoadPinInfo(index, data, distnce){                              //Updat
     $('#lng').text("");
     $('#msg').text("");
     $('#distance').text("");
+    $('#speed').text("");
     $('#bp').text("");
   }else{
     // insert trip title

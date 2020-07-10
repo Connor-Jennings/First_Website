@@ -61,7 +61,7 @@
                    
                 }
                 //{"lat":"32.9854","lng":"-117.1642","timeStamp":"19:22","text":"I am still alive"},
-                $row_obj = (object) ["lat" => $row["LAT"], "lng"=> $row["LNG"], "timeStamp"=> $row["TIMESTMP"], "text"=> $row["TXT"]];
+                $row_obj = (object) ["lat" => $row["LAT"], "lng"=> $row["LNG"], "timeStamp"=> $row["TIMESTMP"], "bp"=> $row["AIRPRESSURE"] "text"=> $row["TXT"]];
                 $list_array[$item_number] = $row_obj;
               //  echo "<tr><td>".$row["LAT"]."</td><td>".$row["LNG"]."</td></tr>";
                 
@@ -86,7 +86,7 @@
     $row = $trip_result->fetch_assoc();
     $list_array = array();
     $list_array[0] = (object) ["title" => "Last Known Location" ];
-    $list_array[1] = (object) ["lat" => $row["LAT"], "lng"=> $row["LNG"], "timeStamp"=> $row["TIMESTMP"], "text"=> $row["TXT"]];
+    $list_array[1] = (object) ["lat" => $row["LAT"], "lng"=> $row["LNG"], "timeStamp"=> $row["TIMESTMP"], "bp"=> $row["AIRPRESSURE"], "text"=> $row["TXT"]];
     
     $JSONdata = json_encode((object)["trip"=> $list_array]);
     file_put_contents("../data/lastTransmission.json", $JSONdata);

@@ -1,46 +1,33 @@
-
-/*Style sheet for the map page 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  float:left;}
- */
-#map {
-  margin: auto;
-  padding: 10px;
-  height: 850px; 
-  width: 100%;}
-a.tripmenu{
-  color:black;}
+.mapBlock{
+  display: block;
+  margin-top: 4%;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 30px;
+  text-align: center;
+  height:100%;
+  min-height: 250px;
+  width:100%;
+}
 #mapMenu{
+  width:95%;
+  text-align:left;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+#map{
   display: inline-block;
-  margin-right: 30px;
-  margin-left: 10px;
-  padding: 10px 20px 10px 20px; /*top right bottom left */
-  background-color: white;
-  border: solid;
-  border-color: black;}
+  width: 85%;
+  height: 650px;
+  float:left;
+  text-align: left;
+  margin-bottom: 150px;
+}
 #info{
   display: inline-block;
-  margin-right: 30px;
-  margin-left: 10px;
-  padding: 10px 20px 10px 20px; /*top right bottom left */
+  width: 20%;
+  height: 650px;
+  float:left;
+  font-size: 20px;
   background-color: white;
-  border: solid;
-  border-color: black;
 }
-p.infotxt{
-  color:black;}
-#texting{
-  text-align: center;}
-#MainBlock{
-  text-align: center;
-  position: center;
-  margin: auto;
-  white-space: nowrap;
-  min-width:200px;
-  /*width: auto !important;*/
-  width: 100%; }
-#mapMenu, #info{
-  white-space: normal;
-  vertical-align: top;}

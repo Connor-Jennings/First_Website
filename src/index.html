@@ -1,61 +1,60 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title> Home Page </title>
-        <!--CSS-->
-        <link href="css/style-sheet.css" type="text/css" rel="stylesheet" />
-        <link href="css/indexStyleSheet.css" type="text/css" rel="stylesheet" />
-        <link href="css/lightslider.css" type="text/css" rel="stylesheet" />
-    </head>
-    
-    <body class="index">
-        <!-- Menu -->
-        <ul class="menu">
-            <p class="logo">Project Found</p>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="map.html">Map</a></li>
-            <li><a href="message-board.html">Log/Messages</a></li>
-            <li><a href="about.html">About</a></li>
-            <p class="HAM">KN6COG</p>
-        </ul>
-        <!--Text Content-->
-        <h2 class="title">Project Found</h2>
-        <div class="content">
-            <div class="emergencyStatus">
-                <p><a class="emergencyLink">Emergency Status :</a></p> <p class="1">...</p>
-            </div>
-            <div class="lastKnownLocation">
-                <p><a>Last Known Location :</a></p><p class="1">...</p>
-            </div>
-       </div>
 
-        <!--Photo Slider-->
-        <div class="demo" id="imgs">
-            <ul class="list-unstyled row" id="anchor-tag">
-                <li data-thumb="images/mapPics/IMG_2176.JPEG" data-src="images/mapPics/IMG_2176.JPEG"><img id="0" src="images/mapPics/IMG_2176.JPEG"/></li>
-                <li data-thumb="images/mapPics/IMG_0180.JPEG" data-src="images/mapPics/IMG_0180.JPEG"><img id="1" src="images/mapPics/IMG_0180.JPEG"/></li>
-                <li data-thumb="images/mapPics/IMG_5736.JPEG" data-src="images/mapPics/IMG_5736.JPEG"><img id="2" src="images/mapPics/IMG_5736.JPEG"/></li>
-                <li data-thumb="images/mapPics/IMG_8636.jpg" data-src="images/mapPics/IMG_8636.jpg">  <img id="2" src="images/mapPics/IMG_8636.jpg"/></li>
-                <li data-thumb="images/mapPics/IMG_5196.jpg" data-src="images/mapPics/IMG_5196.jpg">  <img id="3" src="images/mapPics/IMG_5196.jpg"/></li>
-                <li data-thumb="images/mapPics/IMG_39801.jpg" data-src="images/mapPics/IMG_39801.jpg"><img id="4" src="images/mapPics/IMG_39801.jpg"/></li>
-                <li data-thumb="images/mapPics/IMG_6766.jpg" data-src="images/mapPics/IMG_6766.jpg">  <img id="5" src="images/mapPics/IMG_6766.jpg"/></li>
-                <li data-thumb="images/mapPics/IMG_2312.JPEG" data-src="images/mapPics/IMG_2312.JPEG"><img id="6" src="images/mapPics/IMG_2312.JPEG"/></li>
-                <li data-thumb="images/mapPics/IMG_5994.JPEG" data-src="images/mapPics/IMG_5994.JPEG"><img id="7" src="images/mapPics/IMG_5994.JPEG"/></li>
-                <li data-thumb="images/mapPics/IMG_18291.jpg" data-src="images/mapPics/IMG_18291.jpg"><img id="8" src="images/mapPics/IMG_18291.jpg"/></li>
-                <li data-thumb="images/mapPics/IMG_48801.jpg" data-src="images/mapPics/IMG_48801.jpg"><img id="9" src="images/mapPics/IMG_48801.jpg"/></li>
-                <li data-thumb="images/mapPics/IMG_1745.jpg" data-src="images/mapPics/IMG_1745.jpg">  <img id="10" src="images/mapPics/IMG_1745.jpg"/></li>
-                <li data-thumb="images/mapPics/IMG_17251.jpg" data-src="images/mapPics/IMG_17251.jpg"><img id="11" src="images/mapPics/IMG_17251.jpg"/></li>
-                <li data-thumb="images/mapPics/IMG_1202.jpg" data-src="images/mapPics/IMG_1202.jpg">  <img id="12" src="images/mapPics/IMG_1202.jpg"/></li>
-                <li data-thumb="images/mapPics/IMG_0665.JPEG" data-src="images/mapPics/IMG_0665.JPEG"><img id="13" src="images/mapPics/IMG_0665.JPEG"/></li>
-            </ul>
+  <head>
+      <title> Home </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!--CSS-->
+      <link href="css/indexStyleSheet.css" type="text/css" rel="stylesheet" />
+      <link href="css/mapStyleSheet.css" type="text/css" rel="stylesheet" />
+  </head>
+
+  <body class="bg-img">
+
+    <!-- Menu Block -->
+    <div class="menu">
+      <div class="container">
+        <div class="topnav">
+          <a href="index.html">Home</a>
+          <a href="pictures.html">Pictures</a>
+          <a href="message-board.html">Log</a>
+          <a href="about.html">About</a>
         </div>
-        
-        <!-- Footer -->
-        <div class="footer"><a>Go outside </a></div>
-        
-        <!--javaScript-->
-        <script src="js/jquery-3.4.1.js"></script>
-        <script src="js/lightslider.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-    </body>
+      </div>
+      <div class="logo_container">
+        <p class="logo"> Project Found </p> 
+      </div>
+    </div>
+
+    <!-- Map Block-->
+    <div class="mapBlock">
+
+      <!-- Trip Selection-->
+      <div id="mapMenu">
+          <form id="listOfTrips">
+              <div id="listOfTripsd"></div>
+              <input type="button" id="updateMap" value="Refresh_Map">
+          </form>
+      </div>
+    
+      <!-- Map container -->
+      <div id="map"></div>
+
+      <!-- Info block -->
+      <div id="info">
+        <h3 class="infoTitle"></h3>
+        <p class="infotxt" id="timestamp"></p>
+        <p class="infotxt" id="distance"></p>
+        <p class="infotxt" id="speed"></p>
+        <p class="infotxt" id="bp"></p>
+        <p class="infotxt" id="lat"></p>
+        <p class="infotxt" id="lng"></p>
+        <p class="infotxt" id="msg"></p>
+      </div>
+    
+    </div>
+    <script src="js/jquery-3.4.1.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADhm_lBPTkilxVcckx8e95lcsgZqQth-8"></script>
+    <script type="text/javascript" src="js/map.js"></script>
+  </body>
 </html>

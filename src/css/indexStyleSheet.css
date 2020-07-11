@@ -1,62 +1,67 @@
 
 /*Home page style sheet*/
+/* CSS for general page */ 
 
-.title{
+body{
+  background-color:white;
+  margin: 0px;
+}
+
+.menu{
+  width: 95%;
+  height: 80px;
+}
+
+p.logo{
+  display: inline;
+  float: right;
+  margin: 30px;
+  color: black;
+  font-size: 25px;
+  padding: 5px;
+}
+
+
+.bg-img {
+  
+  /* The image used */
+  background-image: url("../images/Beaut.jpg");
+  
+  min-height: 850px;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* Needed to position the navbar */
+  position: relative;
+}
+
+/* Position the navbar container inside the image */
+.container {
+  position: absolute;
+  margin: 20px;
+  width: auto;
+}
+
+/* The navbar */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Navbar links */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
   text-align: center;
-  font-size: 58px;
-  font-weight: bold;
-  margin-left: 25%;
-  margin-right: 25%;
-  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
 }
 
-.lastKnownLocation p, .emergencyStatus p{
-  margin-right: 2.5%;
-  margin-left: 2.5%;
-  margin-bottom: 5%;}
-    
-.emergencyStatus:hover{
-  color: red;
-  font-weight: bold;}
-.lastKnownLocation:hover{
-  color:blue;
-  font-weight: bold;
-}
-.emergencyStatus{
-  margin-right:50px;
-}
-.lastKnownLocation, .emergencyStatus{
-  display: inline-block;
-  width: 500px;
-  height: 250px;
-  border-style: solid;
-  margin-top: 20px;
-  padding-left:5px;
-  padding-right:5px;}
-.content{
-  text-align: center;
-  vertical-align: middle;}
-    
-div.footer{
-  color: white;
-  position: fixed;
-  width: 100%;
-  margin: 10px auto 10px auto;
-  text-align: center ;    
-  bottom: 10px;
-  font-size: 110%; }
-
-/*lightSlider settings*/
-
-div.demo {
-  width:auto;
-  height: 550px;
-  margin-left: 25%;
-  margin-right: 25%;
-  margin-top: 5%;
-  margin-bottom: 475px;
-}
-img {   
-  width:100%;
-  height:100%;
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
 }

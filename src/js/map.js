@@ -28,29 +28,25 @@ function distance(lat1, lon1, lat2, lon2, unit) {
 function LoadMenu(){                                          //loads in list of trip choices
   $.getJSON('data/tripList.json')
   .done(function(data){
-    var items = '<div class="heading"><h2>Trip Menu</h2></div>';
+    var items = '';//'<div class="heading"><h2>Trip Menu</h2></div>';
     for(var i = 0; i<data.tripList.length; i++){
       if(i == 0){
-        items += '<input type="radio"';
-        items += 'class="tripList"';
-        items +=' name="tripList"';
+        items += '<option';
+        items += ' class="tripList"';
+        items +=' name="../'+data.tripList[i].path+'"';;
         items +=' value="';
-        items += data.tripList[i].path;
-        items +='" checked>';
         items += data.tripList[i].title;
-        items += '<br>';
-      }else{
-        items += '<input type="radio"';
-        items += 'class="tripList"';
-        items +=' name="tripList"';
-        items +=' value="';
-        items += data.tripList[i].path;
         items +='">';
+      }else{
+        items += '<option';
+        items += ' class="tripList"';
+        items +=' name="../'+data.tripList[i].path+'"';
+        items +=' value="';
         items += data.tripList[i].title;
-        items += '<br>';
+        items +='">';
       }
     }
-    $('#listOfTripsd').html(items);
+    $('#listTrip').html(items);
     $('#info').show();
   })
   .fail(function(){
@@ -214,8 +210,10 @@ $(function(){                                             //when DOM is ready
   
   
   $('input[value="Refresh_Map"]').on('click', function(){      //event listener for updating the map 
-    var $valued = $('input:checked').val();
-    LoadMap($valued);
+    var $valued = $('input #inputField').value;
+    $('.infoTitle').text($valued);
+    var tripLocation = $('#listOfTrips option[name="'+$valued+'"]');
+    //LoadMap(tripLocation);
   });
   
   $(window).on('resize',function(){           //Event Listener for Map resize 

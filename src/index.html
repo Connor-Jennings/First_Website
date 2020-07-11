@@ -1,47 +1,50 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <title> Home </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--CSS-->
+        <link href="css/indexStyleSheet.css" type="text/css" rel="stylesheet" />
+        <link href="css/mapStyleSheet.css" type="text/css" rel="stylesheet" />
+    </head>
 
-  <head>
-      <title> Home </title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <!--CSS-->
-      <link href="css/indexStyleSheet.css" type="text/css" rel="stylesheet" />
-      <link href="css/mapStyleSheet.css" type="text/css" rel="stylesheet" />
-  </head>
-
-  <body class="bg-img">
+    <body class="bg-img">
 
     <!-- Menu Block -->
     <div class="menu">
-      <div class="container">
+        <div class="container">
         <div class="topnav">
-          <a href="index.html">Home</a>
-          <a href="pictures.html">Pictures</a>
-          <a href="message-board.html">Log</a>
-          <a href="about.html">About</a>
+            <a href="index.html">Home</a>
+            <a href="pictures.html">Pictures</a>
+            <a href="message-board.html">Log</a>
+            <a href="about.html">About</a>
         </div>
-      </div>
-      <div class="logo_container">
+        </div>
+        <div class="logo_container">
         <p class="logo"> Project Found </p> 
-      </div>
+        </div>
     </div>
 
     <!-- Map Block-->
     <div class="mapBlock">
 
-      <!-- Trip Selection-->
-      <div id="mapMenu">
-          <form id="listOfTrips">
-              <div id="listOfTripsd"></div>
-              <input type="button" id="updateMap" value="Refresh_Map">
-          </form>
-      </div>
-    
-      <!-- Map container -->
-      <div id="map"></div>
+        <!-- Trip Selection-->
+        <div id="mapMenu">
+            <form id="listOfTrips">
+                <input list="listTrip" id="inputField" name="tripSelection">
+                <datalist id="listTrip">
+                    
+                </datalist>
+                <input type="button" id="updateMap" value="Refresh_Map">
+            </form>
+        </div>
 
-      <!-- Info block -->
-      <div id="info">
+        <!-- Map container -->
+        <div id="map"></div>
+
+        <!-- Info block -->
+        <div id="info">
         <h3 class="infoTitle"></h3>
         <p class="infotxt" id="timestamp"></p>
         <p class="infotxt" id="distance"></p>
@@ -50,11 +53,11 @@
         <p class="infotxt" id="lat"></p>
         <p class="infotxt" id="lng"></p>
         <p class="infotxt" id="msg"></p>
-      </div>
-    
+        </div>
+
     </div>
     <script src="js/jquery-3.4.1.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADhm_lBPTkilxVcckx8e95lcsgZqQth-8"></script>
     <script type="text/javascript" src="js/map.js"></script>
-  </body>
+    </body>
 </html>

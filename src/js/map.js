@@ -211,12 +211,9 @@ $(function(){                                             //when DOM is ready
   
   $('#listOfTrips').on('submit', function(e){      //event listener for updating the map 
     e.preventDefault();
-    $.post("php/tripMenu.php", $("#listOfTrips").serialize(),  function(response) {
-      var path = $('#listTrip option [value="'+response+'"]').attr("name");;
-      window.alert(response);
-      window.alert(path);
-     // LoadMap(path);
-    });
+    var str = $('#tripSelection').val();          //get title of trip 
+    var path = $('#listTrip option[value="'+str+'"]').attr("name"); // find the path to the trip file
+    LoadMap(path);                              //load new map 
   });
   
   $(window).on('resize',function(){           //Event Listener for Map resize 

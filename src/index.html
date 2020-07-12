@@ -31,11 +31,11 @@
 
         <!-- Trip Selection-->
         <div id="mapMenu">
-            <form action="../php/tripMenu.php" id="listOfTrips" method="get">
-                <input list="listTrip" name="tripSelection" id="tripSelection">
+            <form action="../php/tripMenu.php" id="listOfTrips" method="post">
+                <input type="text" list="listTrip" id="tripSelection" />
                 <datalist id="listTrip">
                 </datalist>
-                <input type="submit" />
+                <input type="submit" name="submit"/>
             </form>
         </div>
 

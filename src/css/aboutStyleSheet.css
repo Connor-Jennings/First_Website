@@ -1,13 +1,33 @@
 
 div.about{
-    padding-top: 5%;
+    margin-top: 14%;
+    margin-left: 30%;
+    margin-right: 30%;
+    padding: 10px;
+    border: solid;
     text-align: center;
-    font-size: 110%;
-    font-family: times; }
-#aboutphoto img{
-     margin: 2.5% auto 0px auto;
-     padding-bottom: 4.8%; }
+    font-size: 50px;
+    font-family: times; 
+    background-color: aliceblue;
+
+}
+
 p a.aboutLinks{
     color: blue;}
 p a.aboutLinks:hover{
-     text-decoration: underline;}
+    text-decoration: underline;}
+
+.bg-img {
+    /* The image used */
+    background-image: url("../images/IMG_0802.JPEG");
+
+    min-height: 1250px;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    /* Needed to position the navbar */
+    position: relative;
+}

@@ -1,5 +1,13 @@
 # First_Website
-This website is an interface to upload data to a mysql database, and display that information.  
-https://project-found.com
 
-In the PPR repository you will find a python script that is used to transmit data to project-found.com 
+The purpose of this website is to be able to have my location tracked realtime by loved ones while I am backpacking
+
+This website is a display of location and other information that is stored in an SQL db
+https://project-found.com
+The page "addData.html" page is an interface to upload data to the db
+
+
+In the "PPR" repository there is a python script that uploads data to project-found.com
+
+
+

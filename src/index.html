@@ -31,12 +31,11 @@
 
         <!-- Trip Selection-->
         <div id="mapMenu">
-            <form id="listOfTrips">
-                <input list="listTrip" id="inputField" name="tripSelection">
+            <form action="../php/tripMenu.php" id="listOfTrips" method="get">
+                <input list="listTrip" name="tripSelection" id="tripSelection">
                 <datalist id="listTrip">
-                    
                 </datalist>
-                <input type="button" id="updateMap" value="Refresh_Map">
+                <input type="submit" />
             </form>
         </div>
 

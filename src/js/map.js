@@ -209,11 +209,14 @@ $(function(){                                             //when DOM is ready
   LoadMap('data/lastTransmission.json');    // Initialize the Map
   
   
-  $('input[value="Refresh_Map"]').on('click', function(){      //event listener for updating the map 
-    var $valued = $('input #inputField').value;
-    $('.infoTitle').text($valued);
-    var tripLocation = $('#listOfTrips option[name="'+$valued+'"]');
-    //LoadMap(tripLocation);
+  $('#listOfTrips').on('submit', function(e){      //event listener for updating the map 
+    e.preventDefault();
+    $.post("php/tripMenu.php", $("#listOfTrips").serialize(),  function(response) {
+      var path = $('#listTrip option [value="'+response+'"]').attr("name");;
+      window.alert(response);
+      window.alert(path);
+     // LoadMap(path);
+    });
   });
   
   $(window).on('resize',function(){           //Event Listener for Map resize 

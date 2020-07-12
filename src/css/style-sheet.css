@@ -16,11 +16,7 @@ ul.menu{
     border-bottom: 1px solid black;
     text-align: center;
     padding-right: 100px;}
-p.logo{
-    display: inline;
-    color: #25DB49;
-    float: left;
-    margin-left: 20px;}
+
 p.HAM{
     display: inline;
     color: white;

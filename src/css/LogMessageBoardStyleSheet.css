@@ -11,7 +11,24 @@ label{
 table {
     width: 100%;
     border-collapse: collapse;
-    float:left;}
+    float:left;
+    border: 1px solid black;
+    display:block;
+    overflow:auto;
+    height:710px;
+    width:90%;
+    margin-left: 5%;
+    margin-right: 5%;
+}/*
+ tbody{
+    display:block;
+    overflow:auto;
+    height:700px;
+    width:90%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  */
 #Wood{
     text-align: center;
     margin-left: 5%;
@@ -25,3 +42,10 @@ th, td {
     vertical-align: top;}
 th.msg{
     max-width: 25%;}
+.bg-img {
+    /* The image used */
+    background-image: url("../images/Beauty.jpg") !important;
+    position: relative !important;
+    height: 800 px !important;
+    width: 100%;
+}

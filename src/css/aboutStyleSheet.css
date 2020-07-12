@@ -31,3 +31,12 @@ p a.aboutLinks:hover{
     /* Needed to position the navbar */
     position: relative;
 }
+p.logo{
+    display: inline;
+    float: right;
+    margin: 30px;
+    color: black;
+    font-size: 25px;
+    padding: 5px;
+  }
+  

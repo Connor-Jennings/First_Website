@@ -1,4 +1,5 @@
 # First_Website
-First try at a website, using a raspberry pi as my server
-
+This website is an interface to upload data to a mysql database, and display that information.  
 https://project-found.com
+
+In the PPR repository you will find a python script that is used to transmit data to project-found.com 

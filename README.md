@@ -1,6 +1,6 @@
 # First_Website
 
-The purpose of this website is to have my location tracked realtime by loved ones while I am backpacking
+The purpose of this website is track my location and compile it into a plesant interface
 
 This website is a display of location and other information that is stored in an SQL db
 https://project-found.com. 

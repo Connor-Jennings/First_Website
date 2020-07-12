@@ -15,10 +15,11 @@ table {
     border: 1px solid black;
     display:block;
     overflow:auto;
-    height:710px;
+    height:730px;
     width:90%;
     margin-left: 5%;
     margin-right: 5%;
+    margin-bottom: 100px;
 }
 #Wood{
     text-align: center;
@@ -36,7 +37,7 @@ th.msg{
 .bg-img {
     /* The image used */
     background-image: url("../images/Beauty.jpg") !important;
-    position: relative !important;
-    height: 800 px !important;
+    /*position: relative !important;*/
+    min-height: 1200px  !important;
     width: 100%;
 }

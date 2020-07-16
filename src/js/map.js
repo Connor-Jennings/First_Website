@@ -2,6 +2,7 @@
 //This page contains the JavaScript for the map page 
 //GLOABL variable bc im lazy
 distn = 0;
+distance_between_points = new Array();
 
 function distance(lat1, lon1, lat2, lon2, unit) {
 	if ((lat1 == lat2) && (lon1 == lon2)) {
@@ -74,13 +75,13 @@ function LoadPinInfo(index, data, distnce){                              //Updat
 
     // insert total miles
     var num = distn.toFixed(2);
-    $('#distance').text("Total trip : " + num + " miles");
+    $('#distance').text("Total Trip : " + num + " miles");
 
     // calc and insert speed 
-    if(data.trip[index-1].unixtime == null){
+    if((data.trip[index-1].unixtime == null) || (index == 1)){
       $('#speed').text("Speed : n/a");
     }else{
-      speed = (data.trip[index].unixtime - data.trip[index-1].unixtime)/3600;
+      speed = (distance_between_points[index])/((data.trip[index].unixtime - data.trip[index-1].unixtime)*3600);
       $('#speed').text("Speed from last loc : "+speed.toFixed(1)+" mph");
     }
     
@@ -151,7 +152,8 @@ function LoadMap(fileSelectionPath){                                //map initia
       var LatLong = new google.maps.LatLng(parseFloat(data.trip[i].lat),parseFloat(data.trip[i].lng)); 
       // calc distance for the trip 
       if (i < data.trip.length-1){
-        distn += distance(parseFloat(data.trip[i].lat),parseFloat(data.trip[i].lng), parseFloat(data.trip[i+1].lat),parseFloat(data.trip[i+1].lng));
+        distn += distance(parseFloat(data.trip[i-1].lat),parseFloat(data.trip[i-1].lng), parseFloat(data.trip[i].lat),parseFloat(data.trip[i].lng));
+        distance_between_points[i] = distance(parseFloat(data.trip[i-1].lat),parseFloat(data.trip[i-1].lng), parseFloat(data.trip[i].lat),parseFloat(data.trip[i].lng));
       }
       var marker = new google.maps.Marker({
         position: LatLong,
@@ -169,7 +171,7 @@ function LoadMap(fileSelectionPath){                                //map initia
       });
       google.maps.event.addListener(marker,'click',function(){                //event listener for clicking on pins
         var index = this.getZIndex();
-        LoadPinInfo(index, data, distn);
+        LoadPinInfo(index, data, distance_between_points[index]);
       });
       pathCords[i-1] = {'lat' : parseFloat(data.trip[i].lat), 'lng' : parseFloat(data.trip[i].lng)};
       ResizeMap();
